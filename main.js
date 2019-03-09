@@ -1,3 +1,21 @@
+var url = 'https://wanderdrone.appspot.com/';
+map.on('load', function () {
+window.setInterval(function() {
+map.getSource('drone').setData(url);
+}, 2000);
+
+map.addSource('drone', { type: 'geojson', data: url });
+map.addLayer({
+"id": "drone",
+"type": "symbol",
+"source": "drone",
+"layout": {
+"icon-image": "rocket-15"
+}
+});
+});
+
+
 
 L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = L.mapbox.map('map')
@@ -14,6 +32,8 @@ var map = L.mapbox.map('map')
 
 var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSpteNyZyHlSfOXgEb_rBtSVWlPdsrqQOR5WDS8ckGey8g-lMfp9shx20ERfbKPHYsAK3FrOVSgEIR7/pub?output=csv')
      .on('ready', function(layer) {
+       // reload data in realtime (note "}, 2000);" to close off function)
+       window.setInterval(function() {
      //map.flyToBounds(runLayer.getBounds(),{padding: [350,350]});
      map.fitBounds(runLayer.getBounds(),{padding: [50,50]});
         // An example of customizing marker styles based on an attribute.
@@ -60,5 +80,6 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSp
                 this.closePopup();
             });
         });
+      }, 2000);
     })
     .addTo(map);
