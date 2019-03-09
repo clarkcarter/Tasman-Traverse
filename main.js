@@ -12,7 +12,7 @@ var map = L.mapbox.map('map')
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
 
-var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSkDT_JPDPIlda1B7-lnoTPVzozaCJZxDBa_3GACpPHGlOLeRX-wzREYEuqqzH9jneKNS2WaBJCyZJ1/pub?output=csv')
+var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSpteNyZyHlSfOXgEb_rBtSVWlPdsrqQOR5WDS8ckGey8g-lMfp9shx20ERfbKPHYsAK3FrOVSgEIR7/pub?output=csv')
      .on('ready', function(layer) {
      map.flyToBounds(runLayer.getBounds(),{padding: [350,350]});
         // An example of customizing marker styles based on an attribute.
