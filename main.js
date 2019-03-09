@@ -49,7 +49,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk
                   }));
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
-            }
+            };
             // Bind a popup to each icon based on the same properties
                 marker.bindPopup(marker.feature.properties.name);
             marker.on('mouseover', function (e) {
