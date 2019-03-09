@@ -10,11 +10,11 @@ var map = L.mapbox.map('map')
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
+window.setInterval(function() {
 
 var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv')
      .on('ready', function(layer) {
        // reload data in realtime (note "}, 2000);" to close off function)
-       window.setInterval(function() {
      //map.flyToBounds(runLayer.getBounds(),{padding: [350,350]});
      map.fitBounds(runLayer.getBounds(),{padding: [50,50]});
         // An example of customizing marker styles based on an attribute.
@@ -61,6 +61,6 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                 this.closePopup();
             });
         });
-      }, 10000);
     })
     .addTo(map);
+          }, 10000);
