@@ -29,7 +29,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk
                     'marker-size': 'large',
                     'marker-symbol': 'c',
                 }));
-            } else if (marker.toGeoJSON().properties.name === 'Cranney') {
+            } else if (marker.toGeoJSON().properties.name === 'Matt') {
                   // The argument to L.mapbox.marker.icon is based on the
                   // simplestyle-spec: see that specification for a full
                   // description of options.
@@ -37,6 +37,15 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk
                       'marker-color': '#0000ff',
                       'marker-size': 'large',
                       'marker-symbol': 'm',
+                  }));
+            } else if (marker.toGeoJSON().properties.name === 'Dan') {
+                  // The argument to L.mapbox.marker.icon is based on the
+                  // simplestyle-spec: see that specification for a full
+                  // description of options.
+                  marker.setIcon(L.mapbox.marker.icon({
+                      'marker-color': '#00ff00',
+                      'marker-size': 'large',
+                      'marker-symbol': 'd',
                   }));
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
@@ -52,4 +61,3 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSk
         });
     })
     .addTo(map);
-   
