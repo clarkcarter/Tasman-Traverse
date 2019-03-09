@@ -34,7 +34,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSp
                   // simplestyle-spec: see that specification for a full
                   // description of options.
                   marker.setIcon(L.mapbox.marker.icon({
-                      'marker-color': '#0000ff',
+                      'marker-color': '#007700',
                       'marker-size': 'large',
                       'marker-symbol': 'm',
                   }));
@@ -43,7 +43,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSp
                   // simplestyle-spec: see that specification for a full
                   // description of options.
                   marker.setIcon(L.mapbox.marker.icon({
-                      'marker-color': '#00ff00',
+                      'marker-color': '#0000ff',
                       'marker-size': 'large',
                       'marker-symbol': 'd',
                   }));
