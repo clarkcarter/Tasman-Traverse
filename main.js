@@ -14,7 +14,6 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
      .on('ready', function(layer) {
        // reload data in realtime (note "}, 2000);" to close off function)
      //map.flyToBounds(runLayer.getBounds(),{padding: [350,350]});
-     setInterval(function() {
 
      map.fitBounds(runLayer.getBounds(),{padding: [50,50]});
         // An example of customizing marker styles based on an attribute.
@@ -61,7 +60,5 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                 this.closePopup();
             });
         });
-          }, 1000);
     })
     .addTo(map);
-        
