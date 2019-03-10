@@ -12,7 +12,7 @@
    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
 
    function init() {
-        Tabletop.init( { key: public_spreadsheet_url,
+        Tabletop.init( { key: publicSpreadsheetUrl,
                          callback: showInfo,
                          simpleSheet: true } );
       }
@@ -23,7 +23,7 @@
         document.getElementById("name").innerHTML = "<strong>Names:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
         console.log(data);
       }
-      document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");
+      document.write("The published spreadsheet is located at <a target='_new' href='" + publicSpreadsheetUrl + "'>" + publicSpreadsheetUrl + "</a>");
  </script>
 
 </body>
