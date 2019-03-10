@@ -49,6 +49,15 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                       'marker-size': 'large',
                       'marker-symbol': 'd',
                   }));
+            } else if (marker.toGeoJSON().properties.name === 'Julien') {
+                  // The argument to L.mapbox.marker.icon is based on the
+                  // simplestyle-spec: see that specification for a full
+                  // description of options.
+                  marker.setIcon(L.mapbox.marker.icon({
+                      'marker-color': '#00ffff',
+                      'marker-size': 'large',
+                      'marker-symbol': 'j',
+                  }));
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
             }
