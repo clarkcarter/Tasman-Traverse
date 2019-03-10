@@ -14,7 +14,7 @@ var map = L.mapbox.map('map')
 var myVar;
 
 function intervalFunc() {
-  myVar = setInterval(reloadMap, 1000);
+  myVar = setInterval(reloadMap, 10000);
 }
 
 function reloadMap() {
