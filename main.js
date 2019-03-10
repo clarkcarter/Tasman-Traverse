@@ -7,8 +7,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5c
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d',
-  center: [11.000000, 42.000000],
-  zoom: 3.0
+  center: [166.817586, -37.166600],
+  zoom: 4.56
 });
 
 // Omnivore will AJAX-request this file behind the scenes and parse it:
