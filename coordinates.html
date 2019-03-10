@@ -31,13 +31,11 @@
 
     function showInfo (data) {
       console.log(data)
-      var popup = "name"
-        + "latitude" + "longitude"
       var mapOptions = {
         data: data,
         mapDiv: 'map',
         geoJSONincludes: ['name', 'latitude', 'longitude'],
-        template: popup
+        template: '<p>name</p>'
       }
       Sheetsee.loadMap(mapOptions)
     }
