@@ -71,7 +71,6 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
         });
     })
     .addTo(map);
-    alert("Hello third time");
   }
 
     intervalFunc();
