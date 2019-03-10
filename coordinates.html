@@ -25,7 +25,7 @@
 
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
-      var URL = '0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc'
+      var URL = '1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw'
       Tabletop.init({key: URL, callback: showInfo, simpleSheet: true})
     })
 
@@ -36,7 +36,7 @@
       var mapOptions = {
         data: data,
         mapDiv: 'map',
-        geoJSONincludes: ['PlaceName', 'PhotoUrl'],
+        geoJSONincludes: ['name', 'latitude', 'longitude'],
         template: popup
       }
       Sheetsee.loadMap(mapOptions)
