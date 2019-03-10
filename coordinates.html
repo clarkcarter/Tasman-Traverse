@@ -9,7 +9,7 @@
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
  <script type='text/javascript'>
-   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AmYzu_s7QHsmdDNZUzRlYldnWTZCLXdrMXlYQzVxSFE&output=html';
+   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
 
    function init() {
         Tabletop.init( { key: public_spreadsheet_url,
@@ -20,7 +20,7 @@
       function showInfo(data) {
         // data comes through as a simple array since simpleSheet is turned on
         alert("Successfully processed " + data.length + " rows!")
-        document.getElementById("food").innerHTML = "<strong>Foods:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
+        document.getElementById("name").innerHTML = "<strong>Names:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
         console.log(data);
       }
       document.write("The published spreadsheet is located at <a target='_new' href='" + public_spreadsheet_url + "'>" + public_spreadsheet_url + "</a>");
