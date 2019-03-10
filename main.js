@@ -66,7 +66,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
 
     var myVar;
 
-    function myInterval() {
+    function intervalFunc() {
       myVar = setInterval(reloadMap, 1000);
     }
 
@@ -74,4 +74,4 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
       alert("Hello again");
     }
 
-    realtimeMap();
+    intervalFunc();
