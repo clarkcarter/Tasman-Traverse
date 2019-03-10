@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=utf-8 />
-<title>Tasman Traverse</title>
+<meta charset='utf-8' />
+<title>Add live realtime data</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-
-<script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-<link rel="stylesheet" href="style.css" />
-<link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
-
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
 </head>
 <body>
-<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 
 <div id='map'></div>
-<script type="text/javascript" src="main.js"></script>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d',
+zoom: 0
+});
+
+var url = 'https://wanderdrone.appspot.com/';
+map.on('load', function () {
+window.setInterval(function() {
+map.getSource('drone').setData(url);
+}, 2000);
+
+map.addSource('drone', { type: 'geojson', data: url });
+map.addLayer({
+"id": "drone",
+"type": "symbol",
+"source": "drone",
+"layout": {
+"icon-image": "rocket-15"
+}
+});
+});
+</script>
 
 </body>
 </html>
