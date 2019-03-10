@@ -64,14 +64,14 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
     .addTo(map);
 
 
-    var reloadMap;
+    var myVar;
 
-    function realtimeMap() {
-      reloadMap = setInterval(alertFunc, 1000);
+    function myInterval() {
+      myVar = setInterval(reloadMap, 1000);
     }
 
-    function alertFunc() {
-      alert("Hello!");
+    function reloadMap() {
+      alert("Hello again");
     }
 
     realtimeMap();
