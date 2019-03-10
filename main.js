@@ -10,6 +10,15 @@ var map = L.mapbox.map('map')
 // - The file must either be on the same domain as the page that requests it,
 //   or both the server it is requested from and the user's browser must
 //   support CORS.
+
+var myVar;
+
+function intervalFunc() {
+  myVar = setInterval(reloadMap, 1000);
+}
+
+function reloadMap() {
+
 var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv')
      .on('ready', function(layer) {
        // reload data in realtime (note "}, 2000);" to close off function)
@@ -62,16 +71,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
         });
     })
     .addTo(map);
-
-
-    var myVar;
-
-    function intervalFunc() {
-      myVar = setInterval(reloadMap, 1000);
-    }
-
-    function reloadMap() {
-      alert("Hello again");
-    }
+    alert("Hello again");
+  }
 
     intervalFunc();
