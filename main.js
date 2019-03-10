@@ -1,7 +1,15 @@
-L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
-var map = L.mapbox.map('map')
-  .setView([-36, 163], 0)
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d'));
+//L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
+//var map = L.mapbox.map('map')
+//  .setView([-36, 163], 0)
+//  .addLayer(L.mapbox.styleLayer('mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d'));
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
+const map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d',
+  center: [11.000000, 42.000000],
+  zoom: 3.0
+});
 
 // Omnivore will AJAX-request this file behind the scenes and parse it:
 // note that there are considerations:
