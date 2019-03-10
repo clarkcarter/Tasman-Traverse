@@ -10,8 +10,6 @@
 <body>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <script src='sheetsee.js'></script>
  <script type='text/javascript'>
    var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
 
@@ -28,22 +26,8 @@
         console.log(data);
       }
       document.write("The published spreadsheet is located at <a target='_new' href='" + publicSpreadsheetUrl + "'>" + publicSpreadsheetUrl + "</a>");
-
- var optionsJSON = ['name', 'latitude', 'longitude']
- var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
- Sheetsee.createGeoJSON(data, optionsJSON)
-
- var mapOptions = {
-  data: data, // required
-  mapDiv: 'map', //required
-  geoJSONincludes: ['Name', 'Animal', 'Rating'], // optional
-  template: '<p>{{Name}}—{{Animal}}—{{Rating}}</p>', // optional
-  cluster: true, // optional
-  hexcolor: '#e91e63' // optional
-}
-Sheetsee.loadMap(mapOptions)
-
-  </script>
+ </script>
+ 
 
 </body>
 </html>
