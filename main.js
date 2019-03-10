@@ -54,7 +54,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                   // simplestyle-spec: see that specification for a full
                   // description of options.
                   marker.setIcon(L.mapbox.marker.icon({
-                      'marker-color': '#00ffff',
+                      'marker-color': '#ffff00',
                       'marker-size': 'large',
                       'marker-symbol': 'j',
                   }));
