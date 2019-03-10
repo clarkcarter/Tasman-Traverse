@@ -20,7 +20,7 @@
       function showInfo(data) {
         // data comes through as a simple array since simpleSheet is turned on
         alert("Successfully processed " + data.length + " rows!")
-        document.getElementById("name").innerHTML = "<strong>Names:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
+        // document.getElementById("name").innerHTML = "<strong>Names:</strong> " + [ data[0].Name, data[1].Name, data[2].Name ].join(", ");
         console.log(data);
       }
       document.write("The published spreadsheet is located at <a target='_new' href='" + publicSpreadsheetUrl + "'>" + publicSpreadsheetUrl + "</a>");
