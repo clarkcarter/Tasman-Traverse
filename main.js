@@ -62,3 +62,16 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
         });
     })
     .addTo(map);
+
+
+    var reloadMap;
+
+    function realtimeMap() {
+      reloadMap = setInterval(realtimeMap, 1000);
+    }
+
+    function realtimeMap() {
+      alert("Hello!");
+    }
+
+    realtimeMap();
