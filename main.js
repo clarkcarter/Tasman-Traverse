@@ -65,7 +65,7 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                   marker.setIcon(L.mapbox.marker.icon({
                       'marker-color': '#333333',
                       'marker-size': 'large',
-                      'marker-symbol': 'j',
+                      'marker-symbol': 'm',
                   }));
           } else if (marker.toGeoJSON().properties.name === 'Ryan') {
                 // The argument to L.mapbox.marker.icon is based on the
@@ -74,16 +74,16 @@ var runLayer = omnivore.csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSJ
                 marker.setIcon(L.mapbox.marker.icon({
                     'marker-color': '#3ac66c',
                     'marker-size': 'large',
-                    'marker-symbol': 'j',
+                    'marker-symbol': 'r',
                 }));
-            } else if (marker.toGeoJSON().properties.name === 'True') {
+            } else if (marker.toGeoJSON().properties.name === 'Troodles') {
                   // The argument to L.mapbox.marker.icon is based on the
                   // simplestyle-spec: see that specification for a full
                   // description of options.
                   marker.setIcon(L.mapbox.marker.icon({
                       'marker-color': '#ff2222',
                       'marker-size': 'large',
-                      'marker-symbol': 'j',
+                      'marker-symbol': 't',
                   }));
             } else {
                 marker.setIcon(L.mapbox.marker.icon({}));
