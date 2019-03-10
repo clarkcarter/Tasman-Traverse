@@ -1,7 +1,7 @@
 L.mapbox.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = L.mapbox.map('map')
   .setView([-36, 163], 0)
-  .addLayer(L.mapbox.styleLayer('https://api.mapbox.com/styles/v1/clarkcarter/cjt2q94jd21qp1fqshoagwm7d.html?fresh=true&title=true&access_token=pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g#3.0/42.000000/11.000000/0'));
+  .addLayer(L.mapbox.styleLayer('mapbox://styles/clarkcarter/cjt2q94jd21qp1fqshoagwm7d'));
 
 // Omnivore will AJAX-request this file behind the scenes and parse it:
 // note that there are considerations:
