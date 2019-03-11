@@ -24,7 +24,6 @@
     })
 
     function showInfo (data) {
-      console.log(data)
       var mapOptions = {
         data: data,
         mapDiv: 'map',
@@ -35,6 +34,7 @@
       var optionsJSON = ['name', 'latitude', 'longitude']
       var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
       Sheetsee.createGeoJSON(data, optionsJSON)
+      console.log(geoJSON);
     }
   </script>
 </body>
