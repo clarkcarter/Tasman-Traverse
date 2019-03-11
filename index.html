@@ -30,18 +30,18 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = 'https://www.tasmantraverse.com/coordinates';
+var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
 
 map.on('load', function () {
     window.setInterval(function() {
-        map.getSource('drone').setData(url);
+        map.getSource('clark').setData(clarkUrl);
     }, 2000);
 
-    map.addSource('drone', { type: 'geojson', data: url });
+    map.addSource('clark', { type: 'geojson', data: clarkUrl });
     map.addLayer({
-        "id": "drone",
+        "id": "clark",
         "type": "symbol",
-        "source": "drone",
+        "source": "clark",
         "layout": {
             "icon-image": "rocket-15"
         }
