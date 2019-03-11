@@ -22,17 +22,14 @@
 
     window.addEventListener('DOMContentLoaded', init)
     function showInfo(data) {
-      // data comes through as a simple array since simpleSheet is turned on
-      var coords = JSON.stringify(data);
-      //document.write(coords);
-      console.log(data);
+
+      GeoJSON.parse(data, {Point: ['lat', 'lng']}, function(geojson) {
+        console.log(JSON.stringify(geojson));
+      });
+
     }
 
-    var coords = "https://www.tasmantraverse.com/coordinates-v2"
 
-    var coordsGeo = GeoJSON.parse(data, {Point: ['lat', 'lng']});
-
-    console.log(coordsGeo);
 
     </script>
   </body>
