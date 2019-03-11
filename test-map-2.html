@@ -22,12 +22,9 @@
       window.addEventListener('DOMContentLoaded', init)
       function showInfo(data) {
         // data comes through as a simple array since simpleSheet is turned on
-        alert("Successfully processed " + data.length + " rows")
         var optionsJSON = ['name', 'latitude', 'longitude']
-  var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
-
-  console.log(geoJSON);
-  document.write(geoJSON.data());
+        var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
+        console.log(geoJSON);
       }
 
     </script>
