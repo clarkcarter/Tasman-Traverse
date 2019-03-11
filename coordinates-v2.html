@@ -24,7 +24,7 @@
     function showInfo(data) {
 
       GeoJSON.parse(data, {Point: ['lat', 'lng']}, function(geojson) {
-        console.log(JSON.stringify(geojson));
+        console.log(geojson);
       });
 
     }
