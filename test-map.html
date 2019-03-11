@@ -31,7 +31,10 @@
         geoJSONincludes: ['name', 'latitude', 'longitude'],
         template: '<p>{{name}}</p>'
       }
-      Sheetsee.loadMap(mapOptions)
+      //Sheetsee.loadMap(mapOptions)
+      var optionsJSON = ['name', 'breed', 'cuddlability']
+      var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
+      Sheetsee.createGeoJSON(data, optionsJSON)
     }
   </script>
 </body>
