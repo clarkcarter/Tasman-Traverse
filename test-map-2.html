@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 </head>
 <body>
+  <p id="json"></p>
   <div id="map"></div>
   <script type="text/javascript">
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AmYzu_s7QHsmdDNZUzRlYldnWTZCLXdrMXlYQzVxSFE&output=html';
@@ -23,7 +24,8 @@
       function showInfo(data) {
         // data comes through as a simple array since simpleSheet is turned on
         alert("Successfully processed " + data.length + " rows!")
-        document.write(data);
+        console.log(data);
+        document.getElementById("json").innerHTML = data;
       }
     </script>
 </body>
