@@ -34,11 +34,11 @@ var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
 
     map.on('load', function () {
       window.setInterval(function() {
-          map.getSource('clark').setData(clarkUrl);
+          map.getSource('clark').setData(url);
       }, 2000);
 
 
-      map.addSource('clark', { type: 'geojson', data: clarkUrl });
+      map.addSource('clark', { type: 'geojson', data: url });
 
       map.addLayer({
           "id": "clark",
@@ -48,7 +48,7 @@ var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
               "icon-image": "rocket-15"
           }
       });
-      
+
     });
 
 
