@@ -36,7 +36,8 @@ map.on('load', function () {
         map.getSource('clark').setData(url);
     }, 2000);
 
-    map.addSource('clark', { type: 'geojson', data: url });
+    map.addSource('clark-rocket', { type: 'geojson', data: url });
+
     map.addLayer({
         "id": "clark",
         "type": "symbol",
@@ -45,6 +46,10 @@ map.on('load', function () {
             "icon-image": "rocket-15"
         }
     });
+
+    map.getSource('clark').setData({"type":"Feature","geometry":{"type":"Point","coordinates":[151.2377693,-33.85432191]},"properties":{"color":"#2196f3"},"opts":{"name":"Clark"}})
+
+
 });
 
 
