@@ -25,7 +25,7 @@
 
       GeoJSON.parse(data, {Point: ['lat', 'lng']});
       console.log(GeoJSON.parse(data, {Point: ['lat', 'lng']}));
-
+      document.write(JSON.stringify(GeoJSON.parse(data, {Point: ['lat', 'lng']})))
     }
 
 
