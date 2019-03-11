@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Tasman Traverse</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <script>
+  $(function(){
+  var sheetUrl = 'https://spreadsheets.google.com/feeds/cells/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/2/public/full?alt=json';
+  $.getJSON(sheetUrl, function(data){
+    var entry = data.feed.entry;
+    console.log(entry);
+  })
+  });
+  </script>
+
+</body>
+</html>
