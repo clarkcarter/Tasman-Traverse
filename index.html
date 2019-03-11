@@ -25,7 +25,7 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson';
+var url = 'https://www.tasmantraverse.com/coordinates';
   map.on('load', function () {
     window.setInterval(function() {
       map.getSource('drone').setData(url);
