@@ -31,7 +31,6 @@ var map = new mapboxgl.Map({
 });
 
 var clarkUrl = 'https://wanderdrone.appspot.com/';
-var danUrl = '{"geometry": {"type": "Point", "coordinates": [-131.82658989685002, -17.963191137312371]}, "type": "Feature", "properties": {}}';
 
 map.on('load', function () {
     window.setInterval(function() {
@@ -47,13 +46,7 @@ map.on('load', function () {
         "source": "clark",
         "layout": {
             "icon-image": "rocket-15"
-        },
-            "id": "dan",
-            "type": "symbol",
-            "source": "dan",
-            "layout": {
-                "icon-image": "rocket-14"
-            }
+        }
     });
 });
 </script>
