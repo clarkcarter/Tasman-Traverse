@@ -43,7 +43,7 @@ function makeGeoJSON(csvData) {
     }, function(err, data) {
         map.on('load', function () {
 
-         map.addLayer({
+            map.addLayer({
                 'id': 'participants',
                 'type': 'symbol',
                 'source': {
@@ -51,11 +51,10 @@ function makeGeoJSON(csvData) {
                     'data': data
                 },
                 'layout': {
-                    "icon-image": "rocket-15"
+                    "icon-image": "marker-15"
                 },
                 'paint': {}
             });
-
         });
     });
 }
