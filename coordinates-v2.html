@@ -12,7 +12,7 @@
 <body>
   <script type="text/javascript">
 
-    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
+    var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv';
 
     GeoJSON.parse(public_spreadsheet_url, {Point: ['lat', 'lng']}, function(geojson) {
       document.write(JSON.stringify(geojson));
