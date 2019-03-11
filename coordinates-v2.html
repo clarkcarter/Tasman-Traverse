@@ -23,9 +23,8 @@
     window.addEventListener('DOMContentLoaded', init)
     function showInfo(data) {
 
-      GeoJSON.parse(data, {Point: ['lat', 'lng']}, function(geojson) {
-        console.log(geojson);
-      });
+      GeoJSON.parse(data, {Point: ['lat', 'lng']});
+      console.log(GeoJSON.parse(data, {Point: ['lat', 'lng']}));
 
     }
 
