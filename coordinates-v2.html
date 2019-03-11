@@ -14,20 +14,11 @@
 
     var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
 
-    function init() {
-      Tabletop.init( { key: public_spreadsheet_url,
-                       callback: showInfo,
-                       simpleSheet: true } );
-    }
+    GeoJSON.parse(public_spreadsheet_url, {Point: ['lat', 'lng']}, function(geojson) {
+      document.write(JSON.stringify(geojson));
+    });
 
-    window.addEventListener('DOMContentLoaded', init)
-    function showInfo(data) {
 
-      GeoJSON.parse(data, {Point: ['lat', 'lng']}, function(geojson) {
-        document.write(JSON.stringify(geojson));
-      });
-
-    }
 
 
 
