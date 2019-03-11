@@ -42,7 +42,7 @@ function makeGeoJSON(csvData) {
         lonfield: 'longitude',
         delimiter: ','
     }, function(err, data) {
-      var url = 'https://wanderdrone.appspot.com/';
+      var url = data;
         map.on('load', function () {
 
           window.setInterval(function() {
