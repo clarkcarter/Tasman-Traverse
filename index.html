@@ -31,7 +31,20 @@ var url = 'https://www.tasmantraverse.com/coordinates';
       map.getSource('drone').setData(url);
     }, 2000);
 
-    map.addSource('drone', { type: 'geojson', data: url });
+    map.addSource('drone', { type: 'geojson', data: {
+           "type": "FeatureCollection",
+           "features": [{
+               "type": "Feature",
+               "properties": {},
+               "geometry": {
+                   "type": "Point",
+                   "coordinates": [
+                       -76.53063297271729,
+                       39.18174077994108
+                   ]
+               }
+           }]
+       } });
     map.addLayer({
       "id": "drone",
       "type": "symbol",
