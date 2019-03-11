@@ -27,6 +27,7 @@ var map = new mapboxgl.Map({
 });
 
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
+
 $(document).ready(function() {
     $.ajax({
         type: "GET",
@@ -34,6 +35,15 @@ $(document).ready(function() {
         dataType: "text",
         success: function(csvData) {makeGeoJSON(csvData);}
      });
+
+     window.setInterval(function() {
+       $.ajax({
+           type: "GET",
+           url: dataUrl,
+           dataType: "text",
+           success: function(csvData) {makeGeoJSON(csvData);}
+        });
+     }, 2000);
 });
 
 function makeGeoJSON(csvData) {
@@ -44,11 +54,6 @@ function makeGeoJSON(csvData) {
     }, function(err, data) {
       var url = data;
         map.on('load', function () {
-
-          window.setInterval(function() {
-          map.getSource('drone').setData(url);
-          }, 2000);
-
           map.addSource('drone', { type: 'geojson', data: url });
           map.addLayer({
           "id": "drone",
