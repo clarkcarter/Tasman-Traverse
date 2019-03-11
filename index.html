@@ -4,10 +4,10 @@
     <meta charset='utf-8' />
     <title>Tasman Traverse</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src='csv2geojson.js'></script>
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -16,59 +16,48 @@
 <body>
 
 <div id='map'></div>
-
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 0
+    container: 'map', // container id
+    style: 'mapbox://styles/clarkcarter/cjt47ckbc3f8u1fmrox7uilg9', //stylesheet location
+    center: [ -89.89709901792442, 41.29146740952274], // starting position
+    zoom: 3 // starting zoom
 });
 
-  map.on('load', function () {
-    window.setInterval(function() {
-      map.getSource('drone').setData({
-             "type": "FeatureCollection",
-             "features": [{
-                 "type": "Feature",
-                 "properties": {},
-                 "geometry": {
-                     "type": "Point",
-                     "coordinates": [
-                         -76.53063297271729,
-                         39.18174077994108
-                     ]
-                 }
-             }]
-         });
-    }, 2000);
-
-    map.addSource('drone', { type: 'geojson', data: {
-           "type": "FeatureCollection",
-           "features": [{
-               "type": "Feature",
-               "properties": {},
-               "geometry": {
-                   "type": "Point",
-                   "coordinates": [
-                       -76.53063297271729,
-                       39.18174077994108
-                   ]
-               }
-           }]
-       } });
-    map.addLayer({
-      "id": "drone",
-      "type": "symbol",
-      "source": "drone",
-      "layout": {
-      "icon-image": "rocket-15"
-      }
-  });
+var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: dataUrl,
+        dataType: "text",
+        success: function(csvData) {makeGeoJSON(csvData);}
+     });
 });
 
+function makeGeoJSON(csvData) {
+    csv2geojson.csv2geojson(csvData, {
+        latfield: 'latitude',
+        lonfield: 'longitude',
+        delimiter: ','
+    }, function(err, data) {
+        map.on('load', function () {
+
+            map.addLayer({
+                'id': 'participants',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': data
+                },
+                'layout': {
+                    "icon-image": "marker-15"
+                },
+                'paint': {}
+            });
+        });
+    });
+}
 </script>
 
-
 </body>
-</html>
