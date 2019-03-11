@@ -10,27 +10,7 @@
     <script src='sheetsee.js'></script>
 </head>
 <body>
-  <p id="json"></p>
-  <div id="map"></div>
-  <script type="text/javascript">
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
-      function init() {
-        Tabletop.init( { key: public_spreadsheet_url,
-                         callback: showInfo,
-                         simpleSheet: true } );
-      }
-      window.addEventListener('DOMContentLoaded', init)
-      function showInfo(data) {
-        // data comes through as a simple array since simpleSheet is turned on
-        var optionsJSON = ['name', 'latitude', 'longitude']
-        var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
-        console.log(geoJSON);
-        str = JSON.stringify(geoJSON);
-        //document.write(str);
-      }
 
-
-    </script>
 {"geometry": {"type": "Point", "coordinates": [-127.67565208059428, -22.44920948535538]}, "type": "Feature", "properties": {}}
   </body>
 </html>
