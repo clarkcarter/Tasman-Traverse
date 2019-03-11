@@ -7,9 +7,10 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <script src='sheetsee.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script src='sheetsee.js'></script>
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -21,7 +22,20 @@
 
 <script>
 
-
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
+  function init() {
+    Tabletop.init( { key: public_spreadsheet_url,
+                     callback: showInfo,
+                     simpleSheet: true } );
+  }
+  window.addEventListener('DOMContentLoaded', init)
+  function showInfo(data) {
+    // data comes through as a simple array since simpleSheet is turned on
+    var optionsJSON = ['name', 'latitude', 'longitude']
+    var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
+    console.log(geoJSON);
+    clark = JSON.stringify(geoJSON[0]);
+  }
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
@@ -30,14 +44,12 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
-
 map.on('load', function () {
     window.setInterval(function() {
-        map.getSource('clark').setData(clarkUrl);
+        map.getSource('clark').setData(clark);
     }, 2000);
 
-    map.addSource('clark', { type: 'geojson', data: clarkUrl });
+    map.addSource('clark', { type: 'geojson', data: clark });
     map.addLayer({
         "id": "clark",
         "type": "symbol",
