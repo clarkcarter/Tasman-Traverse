@@ -7,24 +7,32 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script type="text/javascript" src="js/geojson.min.js"></script>
 </head>
 <body>
   <script type="text/javascript">
 
     var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
-      function init() {
-        Tabletop.init( { key: public_spreadsheet_url,
-                         callback: showInfo,
-                         simpleSheet: true } );
-      }
-      window.addEventListener('DOMContentLoaded', init)
-      function showInfo(data) {
-        // data comes through as a simple array since simpleSheet is turned on
-        var coords = JSON.stringify(data);
-        document.write(coords);
-        console.log(data);
-      }
 
+    function init() {
+      Tabletop.init( { key: public_spreadsheet_url,
+                       callback: showInfo,
+                       simpleSheet: true } );
+    }
+
+    window.addEventListener('DOMContentLoaded', init)
+    function showInfo(data) {
+      // data comes through as a simple array since simpleSheet is turned on
+      var coords = JSON.stringify(data);
+      document.write(coords);
+      console.log(data);
+    }
+
+    var coords = "https://www.tasmantraverse.com/coordinates-v2"
+
+    var coordsGeo = GeoJSON.parse(data, {Point: ['lat', 'lng']});
+
+    console.log(coordsGeo);
 
     </script>
   </body>
