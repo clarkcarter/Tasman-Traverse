@@ -38,8 +38,7 @@ var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
       }, 2000);
 
 
-      map.addSource('clark', { type: 'geojson', data: url });
-
+    /*  map.addSource('clark', { type: 'geojson', data: url });
       map.addLayer({
           "id": "clark",
           "type": "symbol",
@@ -49,7 +48,24 @@ var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
           }
       });
 
-    });
+    }); */
+
+    map.addSource('clark', {
+   type: 'geojson',
+   data: {
+       "type": "FeatureCollection",
+       "features": [{
+           "type": "Feature",
+           "properties": {"name": "Clark"},
+           "geometry": {
+               "type": "Point",
+               "coordinates": [
+                   -76.53063297271729,
+                   39.18174077994108
+               ]
+           }
+       }]
+   }
 
 
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
