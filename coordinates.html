@@ -24,8 +24,8 @@
         var optionsJSON = ['name', 'latitude', 'longitude']
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         console.log(geoJSON);
-        str = JSON.stringify(geoJSON);
-        document.write(str(0));
+        str = JSON.stringify(geoJSON[0]);
+        document.write(str);
       }
 
 
