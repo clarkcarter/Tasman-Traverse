@@ -30,27 +30,26 @@ var map = new mapboxgl.Map({
 });
 
 var url = 'https://wanderdrone.appspot.com/';
+var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
 
-map.on('load', function () {
-    window.setInterval(function() {
-        map.getSource('clark').setData(url);
-    }, 2000);
+    map.on('load', function () {
+      window.setInterval(function() {
+          map.getSource('clark').setData(clarkUrl);
+      }, 2000);
 
-    var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
-    
-    map.addSource('clark-rocket', { type: 'geojson', data: url });
-    map.getSource('clark').setData(clarkUrl)
 
-    map.addLayer({
-        "id": "clark",
-        "type": "symbol",
-        "source": "clark",
-        "layout": {
-            "icon-image": "rocket-15"
-        }
+      map.addSource('clark', { type: 'geojson', data: clarkUrl });
+
+      map.addLayer({
+          "id": "clark",
+          "type": "symbol",
+          "source": "clark",
+          "layout": {
+              "icon-image": "rocket-15"
+          }
+      });
+      
     });
-
-});
 
 
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
