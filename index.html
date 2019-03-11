@@ -35,30 +35,32 @@ var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZ
     var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
     console.log(geoJSON);
     clark = JSON.stringify(geoJSON[0]);
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 0
+    });
+
+    map.on('load', function () {
+        window.setInterval(function() {
+            map.getSource('clark').setData(clark);
+        }, 2000);
+
+        map.addSource('clark', { type: 'geojson', data: clark });
+        map.addLayer({
+            "id": "clark",
+            "type": "symbol",
+            "source": "clark",
+            "layout": {
+                "icon-image": "rocket-15"
+            }
+        });
+    });
   }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 0
-});
 
-map.on('load', function () {
-    window.setInterval(function() {
-        map.getSource('clark').setData(clark);
-    }, 2000);
-
-    map.addSource('clark', { type: 'geojson', data: clark });
-    map.addLayer({
-        "id": "clark",
-        "type": "symbol",
-        "source": "clark",
-        "layout": {
-            "icon-image": "rocket-15"
-        }
-    });
-});
 </script>
 
 </body>
