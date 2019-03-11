@@ -43,21 +43,26 @@ function makeGeoJSON(csvData) {
         delimiter: ','
     }, function(err, data) {
         map.on('load', function () {
+          window.setInterval(function() {
+            map.getSource('participants').setData(data);
+          }, 2000);
 
-            map.addLayer({
-                'id': 'participants',
-                'type': 'symbol',
-                'source': {
-                    'type': 'geojson',
-                    'data': data
-                },
-                'layout': {
-                    "icon-image": "marker-15"
-                },
-                'paint': {}
-            });
+        map.addSource('participants', { type: 'geojson', data: data });
+
+        map.addLayer({
+            'id': 'participants',
+            'type': 'symbol',
+            'source': {
+                'type': 'geojson',
+                'data': data
+            },
+            'layout': {
+                "icon-image": "marker-15"
+            },
+            'paint': {}
         });
     });
+  });
 }
 </script>
 
