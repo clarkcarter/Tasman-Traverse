@@ -18,7 +18,20 @@
 <body>
   <div id="map"></div>
   <script type="text/javascript">
+
+  // TABLETOP to get JSON
+  function init() {
+  Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing',
+                   callback: function(data, tabletop) {
+                       console.log(data)
+                   },
+                   simpleSheet: true } )
+}
+window.addEventListener('DOMContentLoaded', init)
+
+//Sheets to get GeoJSON
     Sheetsee.createGeoJSON(data, optionsJSON)
+    var data =
     var optionsJSON = ['name', 'latitude', 'longitude']
 var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
 
