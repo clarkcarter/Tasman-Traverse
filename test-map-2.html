@@ -24,8 +24,11 @@
         // data comes through as a simple array since simpleSheet is turned on
         alert("Successfully processed " + data.length + " rows!")
         console.log(data);
-        document.getElementById("json").innerHTML = data.name + data.latitude + data.longitude;
       }
+      var optionsJSON = ['name', 'latitude', 'longitude']
+var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
+
+console.log(geoJSON);
     </script>
 </body>
 </html>
