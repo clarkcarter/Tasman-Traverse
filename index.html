@@ -35,11 +35,9 @@ var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
 map.on('load', function () {
     window.setInterval(function() {
         map.getSource('clark').setData(clarkUrl);
-        map.getSource('clark').setData(danUrl);
     }, 2000);
 
     map.addSource('clark', { type: 'geojson', data: clarkUrl });
-    map.addSource('dan', { type: 'geojson', data: danUrl });
     map.addLayer({
         "id": "clark",
         "type": "symbol",
