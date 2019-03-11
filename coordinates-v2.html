@@ -20,7 +20,8 @@
       window.addEventListener('DOMContentLoaded', init)
       function showInfo(data) {
         // data comes through as a simple array since simpleSheet is turned on
-        document.write(data);
+        var coords = JSON.stringify(data);
+        document.write(coords);
         console.log(data);
       }
 
