@@ -44,20 +44,18 @@ function makeGeoJSON(csvData) {
     }, function(err, data) {
         map.on('load', function () {
 
-          window.setInterval(function() {
-            map.getSource('participants').setData(data);
-          }, 2000);
-
-          map.addSource('participants', { type: 'geojson', data: data });
-          map.addLayer({
-            "id": "participants",
-            "type": "symbol",
-            "source": "data",
-            "layout": {
-            "icon-image": "rocket-15"
-            }
-          });
-
+            map.addLayer({
+                'id': 'participants',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': data
+                },
+                'layout': {
+                    "icon-image": "rocket-15"
+                },
+                'paint': {}
+            });
         });
     });
 }
