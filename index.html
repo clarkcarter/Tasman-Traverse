@@ -21,7 +21,6 @@
 <div id='map'></div>
 
 <script>
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
     container: 'map',
@@ -29,51 +28,27 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = 'https://wanderdrone.appspot.com/';
-var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
+var url = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson';
+map.on('load', function () {
+    window.setInterval(function() {
+        map.addSource('clark', {
+          type: 'geojson',
+          data: url
+        });
+    }, 2000);
 
-    map.on('load', function () {
-      window.setInterval(function() {
-          map.getSource('clark').setData(url);
-      }, 2000);
-
-
-    //  map.addSource('clark', { type: 'geojson', data: url });
-
-
-    map.addSource('clark', {
-        type: 'geojson',
-        data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson'
+    map.addSource('clark', { type: 'geojson', data: url });
+    map.addLayer({
+        "id": "clark",
+        "type": "symbol",
+        "source": "clark",
+        "layout": {
+            "icon-image": "rocket-15"
+        }
     });
-
-
-   map.addLayer({
-       "id": "clark",
-       "type": "symbol",
-       "source": "clark",
-       "layout": {
-           "icon-image": "rocket-15"
-         }
-   });
-
-
-
-/* var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
-  function init() {
-    Tabletop.init( { key: public_spreadsheet_url,
-                     callback: showInfo,
-                     simpleSheet: true } );
-  }
-  window.addEventListener('DOMContentLoaded', init)
-  function showInfo(data) {
-    // data comes through as a simple array since simpleSheet is turned on
-    var optionsJSON = ['name', 'latitude', 'longitude']
-    var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
-    console.log(geoJSON);
-    clarkPos = JSON.stringify(geoJSON[0]);
-  }; */
-
+});
 </script>
+
 
 </body>
 </html>
