@@ -26,14 +26,18 @@
                        console.log(data)
                    },
                    simpleSheet: true } )
+
+                   Sheetsee.createGeoJSON(data, optionsJSON)
+                   var optionsJSON = ['name', 'latitude', 'longitude']
+                   var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
 }
+
+
+
 window.addEventListener('DOMContentLoaded', init)
 
 //Sheets to get GeoJSON
-    Sheetsee.createGeoJSON(data, optionsJSON)
-    var optionsJSON = ['name', 'latitude', 'longitude']
-    var data = showInfo
-    var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
+
 
 
   </script>
