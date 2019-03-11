@@ -26,23 +26,22 @@ var map = new mapboxgl.Map({
 });
 
 var url = 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson';
-map.on('load', function () {
+  map.on('load', function () {
     window.setInterval(function() {
-        map.addSource('clark', {
-          type: 'geojson',
-          data: url
-        });
+      map.getSource('drone').setData(url);
     }, 2000);
 
+    map.addSource('drone', { type: 'geojson', data: url });
     map.addLayer({
-        "id": "clark",
-        "type": "symbol",
-        "source": "clark",
-        "layout": {
-            "icon-image": "rocket-15"
-        }
-    });
+      "id": "drone",
+      "type": "symbol",
+      "source": "drone",
+      "layout": {
+      "icon-image": "rocket-15"
+      }
+  });
 });
+
 </script>
 
 
