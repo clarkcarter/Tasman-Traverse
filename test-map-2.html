@@ -9,11 +9,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
     <script src='sheetsee.js'></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <style>
-      #map {width: 800px; height: 500px; background: #CCF4FF;}
-      .leaflet-popup-content {width: 102px;}
-      .leaflet-popup-content img {width: 100px;}
-    </style>
 </head>
 <body>
   <div id="map"></div>
@@ -26,10 +21,6 @@
                        console.log(data)
                    },
                    simpleSheet: true } )
-
-                   Sheetsee.createGeoJSON(data, optionsJSON)
-                   var optionsJSON = ['name', 'latitude', 'longitude']
-                   var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
 }
 
 
