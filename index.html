@@ -24,27 +24,29 @@
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
-container: 'map',
-style: 'mapbox://styles/mapbox/streets-v9',
-zoom: 0
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 0
 });
 
 var url = 'https://wanderdrone.appspot.com/';
-map.on('load', function () {
-window.setInterval(function() {
-map.getSource('drone').setData(url);
-}, 2000);
 
-map.addSource('drone', { type: 'geojson', data: url });
-map.addLayer({
-"id": "drone",
-"type": "symbol",
-"source": "drone",
-"layout": {
-"icon-image": "rocket-15"
-}
+map.on('load', function () {
+    window.setInterval(function() {
+        map.getSource('clark').setData(clark);
+    }, 2000);
+
+    map.addSource('clark', { type: 'geojson', data: url });
+    map.addLayer({
+        "id": "clark",
+        "type": "symbol",
+        "source": "clark",
+        "layout": {
+            "icon-image": "rocket-15"
+        }
+    });
 });
-});
+
 
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing';
   function init() {
