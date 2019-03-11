@@ -36,7 +36,10 @@ map.on('load', function () {
         map.getSource('clark').setData(url);
     }, 2000);
 
+    var clarkUrl = 'https://www.tasmantraverse.com/coordinates';
+    
     map.addSource('clark-rocket', { type: 'geojson', data: url });
+    map.getSource('clark').setData(clarkUrl)
 
     map.addLayer({
         "id": "clark",
@@ -46,9 +49,6 @@ map.on('load', function () {
             "icon-image": "rocket-15"
         }
     });
-
-    map.getSource('clark').setData({"type":"Feature","geometry":{"type":"Point","coordinates":[151.2377693,-33.85432191]},"properties":{"color":"#2196f3"},"opts":{"name":"Clark"}})
-
 
 });
 
