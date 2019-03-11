@@ -13,24 +13,18 @@
 <body>
   <div id="map"></div>
   <script type="text/javascript">
-
-  // TABLETOP to get JSON
-  function init() {
-  Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1slpWl7CxBZwhdFU_Eyqi_W2NRGq5cfOw-s_WxEX7dLw/edit?usp=sharing',
-                   callback: function(data, tabletop) {
-                       console.log(data)
-                   },
-                   simpleSheet: true } )
-}
-
-
-
-window.addEventListener('DOMContentLoaded', init)
-
-//Sheets to get GeoJSON
-
-
-
-  </script>
+      var public_spreadsheet_url = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AmYzu_s7QHsmdDNZUzRlYldnWTZCLXdrMXlYQzVxSFE&output=html';
+      function init() {
+        Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         simpleSheet: true } );
+      }
+      window.addEventListener('DOMContentLoaded', init)
+      function showInfo(data) {
+        // data comes through as a simple array since simpleSheet is turned on
+        console.log(data);
+      }
+      document.write(data);
+    </script>
 </body>
 </html>
