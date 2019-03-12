@@ -45,7 +45,7 @@ $(document).ready(function() {
      });
 });
 
-}, 1000);
+
 $(document).ready(function() {
 
 function makeGeoJSON(csvData) {
@@ -54,15 +54,12 @@ function makeGeoJSON(csvData) {
         lonfield: 'longitude',
         delimiter: ','
     }, function(err, data) {
-      window.setTimeout(function() {
 
         map.on('style.load', function () {
           const waiting = () => {
             if (!map.isStyleLoaded()) {
               setTimeout(waiting, 200);
-              console.log("waiting for style to load");
             } else {
-              console.log("style loaded");
               map.addLayer({
                 'id': 'participants',
                 'type': 'symbol',
@@ -88,16 +85,14 @@ function makeGeoJSON(csvData) {
               bounds.extend(feature.geometry.coordinates);
           });
           map.fitBounds(bounds, { padding: 100, speed: 0.2 });
-        }, 5000);
+        }, 3000);
     }
   };
   waiting();
           console.log(data);
         });
     });
-        }, 2000);
 }
-}, 1500);
 </script>
 
 </body>
