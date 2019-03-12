@@ -50,33 +50,33 @@ function makeGeoJSON(csvData) {
         lonfield: 'longitude',
         delimiter: ','
     }, function(err, data) {
-        map.on('style.load', function () {
-  const waiting = () => {
-    if (!map.isStyleLoaded()) {
-      setTimeout(waiting, 200);
-      console.log("waiting for style to load");
-    } else {
-      console.log("style loaded");
       window.setTimeout(function() {
-      map.addLayer({
-            'id': 'participants',
-            'type': 'symbol',
-            'source': {
-                'type': 'geojson',
-                'data': data
-            },
-            'layout': {
-              "icon-image": "{icon}-15",
-              "text-field": "{name}",
-              "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-              "text-offset": [0, 0.6],
-              "text-anchor": "top"
-            },
-            'paint': {
-            //"icon-color": "{color}"
-            }
-        });
-      }, 2000);
+
+        map.on('style.load', function () {
+          const waiting = () => {
+            if (!map.isStyleLoaded()) {
+              setTimeout(waiting, 200);
+              console.log("waiting for style to load");
+            } else {
+              console.log("style loaded");
+              map.addLayer({
+                'id': 'participants',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': data
+                },
+                'layout': {
+                  "icon-image": "{icon}-15",
+                  "text-field": "{name}",
+                  "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                  "text-offset": [0, 0.6],
+                  "text-anchor": "top"
+                },
+                'paint': {
+                //"icon-color": "{color}"
+                }
+            });
 
         window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
@@ -88,16 +88,10 @@ function makeGeoJSON(csvData) {
     }
   };
   waiting();
-
-
-
-
-
-
           console.log(data);
-
         });
     });
+        }, 2000);
 }
 </script>
 
