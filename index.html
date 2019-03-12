@@ -33,6 +33,7 @@ var map = new mapboxgl.Map({
     zoom: 3.94 // starting zoom
 });
 
+window.setTimeout(function() {
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
 
 $(document).ready(function() {
@@ -43,6 +44,9 @@ $(document).ready(function() {
         success: function(csvData) {makeGeoJSON(csvData);}
      });
 });
+
+}, 1000);
+$(document).ready(function() {
 
 function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
@@ -93,6 +97,7 @@ function makeGeoJSON(csvData) {
     });
         }, 2000);
 }
+}, 1500);
 </script>
 
 </body>
