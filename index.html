@@ -44,12 +44,16 @@ $(document).ready(function() {
      });
 });
 
+  var coordData;
+
   function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
       latfield: 'latitude',
       lonfield: 'longitude',
       delimiter: ','
     }, function(err, data) {
+      var coordData = data
+      });
 
       map.once('idle', function () {
         map.addLayer({
@@ -57,7 +61,7 @@ $(document).ready(function() {
           'type': 'symbol',
           'source': {
           'type': 'geojson',
-          'data': data
+          'data': coordData
         },
           'layout': {
           "icon-image": "{icon}-15",
@@ -83,7 +87,7 @@ $(document).ready(function() {
       });
 
     console.log(data);
-});
+
 }
 
 
