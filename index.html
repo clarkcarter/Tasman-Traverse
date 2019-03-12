@@ -55,7 +55,7 @@ function makeGeoJSON(csvData) {
               bounds.extend(feature.geometry.coordinates);
           });
 
-          map.fitBounds(bounds, { padding: '100', '100' });
+          map.fitBounds(bounds, { padding: 100 });
 
           map.addLayer({
                 'id': 'participants',
