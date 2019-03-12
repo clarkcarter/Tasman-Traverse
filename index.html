@@ -48,13 +48,13 @@ function makeGeoJSON(csvData) {
     }, function(err, data) {
         map.on('load', function () {
           var bounds = new mapboxgl.LngLatBounds();
-
+          var markers = data;
           markers.features.forEach(function(feature) {
               bounds.extend(feature.geometry.coordinates);
           });
 
           map.fitBounds(bounds);
-          
+
           map.addLayer({
                 'id': 'participants',
                 'type': 'symbol',
