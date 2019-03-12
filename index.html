@@ -54,6 +54,7 @@ function makeGeoJSON(csvData) {
   const waiting = () => {
     if (!map.isStyleLoaded()) {
       setTimeout(waiting, 200);
+      console.log("waiting for style to load");
     } else {
       map.addLayer({
             'id': 'participants',
