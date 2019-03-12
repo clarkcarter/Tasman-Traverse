@@ -44,16 +44,12 @@ $(document).ready(function() {
      });
 });
 
-  var coordData;
-
   function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
       latfield: 'latitude',
       lonfield: 'longitude',
       delimiter: ','
     }, function(err, data) {
-      var coordData = data
-      });
 
       map.once('idle', function () {
         map.addLayer({
@@ -61,7 +57,7 @@ $(document).ready(function() {
           'type': 'symbol',
           'source': {
           'type': 'geojson',
-          'data': coordData
+          'data': data
         },
           'layout': {
           "icon-image": "{icon}-15",
@@ -77,7 +73,7 @@ $(document).ready(function() {
 
         window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
-          coordData.features.forEach(function(feature) {
+          data.features.forEach(function(feature) {
           bounds.extend(feature.geometry.coordinates);
           });
           map.fitBounds(bounds, {
@@ -86,8 +82,8 @@ $(document).ready(function() {
         }, 3000);
       });
 
-    console.log(coordData);
-
+    console.log(data);
+});
 }
 
 
