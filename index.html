@@ -13,24 +13,15 @@
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
-        .marker {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-        .mapboxgl-popup {
-          max-width: 200px;
-        }
-
-        .mapboxgl-popup-content {
-          text-align: center;
-          font-family: 'Open Sans', sans-serif;
-        }
     </style>
 </head>
 <body>
-
+  <style>
+  .mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+  </style>
 <div id='map'></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
@@ -61,8 +52,7 @@ function makeGeoJSON(csvData) {
     }, function(err, data) {
         map.on('load', function () {
           var bounds = new mapboxgl.LngLatBounds();
-          var markers = data;
-          markers.features.forEach(function(feature) {
+          data.features.forEach(function(feature) {
               bounds.extend(feature.geometry.coordinates);
           });
           map.fitBounds(bounds, { padding: 100 });
@@ -80,18 +70,18 @@ function makeGeoJSON(csvData) {
               'paint': {}
           });
 
+          // Create a popup, but don't add it to the map yet.
           var popup = new mapboxgl.Popup({
-            closeButton: false,
-            closeOnClick: false
+          closeButton: false,
+          closeOnClick: false
           });
-
 
           map.on('mouseenter', 'places', function(e) {
           // Change the cursor style as a UI indicator.
           map.getCanvas().style.cursor = 'pointer';
 
           var coordinates = e.features[0].geometry.coordinates.slice();
-          var name = e.features[0].properties.name;
+          var description = e.features[0].properties.name;
 
           // Ensure that if the map is zoomed out such that multiple
           // copies of the feature are visible, the popup appears
@@ -103,7 +93,7 @@ function makeGeoJSON(csvData) {
           // Populate the popup and set its coordinates
           // based on the feature found.
           popup.setLngLat(coordinates)
-            .setHTML(name)
+            .setHTML(description)
             .addTo(map);
           });
 
