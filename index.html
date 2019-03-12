@@ -57,6 +57,7 @@ function makeGeoJSON(csvData) {
       console.log("waiting for style to load");
     } else {
       console.log("style loaded");
+      window.setTimeout(function() {
       map.addLayer({
             'id': 'participants',
             'type': 'symbol',
@@ -75,6 +76,7 @@ function makeGeoJSON(csvData) {
             //"icon-color": "{color}"
             }
         });
+      }, 2000);
 
         window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
