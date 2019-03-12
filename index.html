@@ -75,8 +75,7 @@ function makeGeoJSON(csvData) {
                     'data': data
                 },
                 'layout': {
-                    "icon-image": "marker-15",
-                    "icon-size": 5
+                    "icon-image": "rocket-15",
                 },
                 'paint': {}
             });
@@ -90,7 +89,11 @@ function makeGeoJSON(csvData) {
               // make a marker for each feature and add to the map
               new mapboxgl.Marker(el)
               .setLngLat(marker.geometry.coordinates)
-              .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setPopup(new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false,
+                offset: 25
+              }) // add popups
                 .setHTML('<h3>' + marker.properties.name + '</h3>'))
               .addTo(map);
             });
