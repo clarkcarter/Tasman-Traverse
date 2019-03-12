@@ -50,10 +50,7 @@ function makeGeoJSON(csvData) {
         lonfield: 'longitude',
         delimiter: ','
     }, function(err, data) {
-        map.on('load', function () {
-
-
-          map.on('style.load', () => {
+        map.on('style.load', function () {
   const waiting = () => {
     if (!map.isStyleLoaded()) {
       setTimeout(waiting, 200);
@@ -87,7 +84,7 @@ function makeGeoJSON(csvData) {
     }
   };
   waiting();
-});
+
 
 
 
