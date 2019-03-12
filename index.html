@@ -52,29 +52,7 @@ $(document).ready(function() {
     }, function(err, data) {
 
       map.once('idle', function () {
-
-        map.addLayer({
-          'id': 'participants',
-          'type': 'circle',
-          'source': {
-          'type': 'geojson',
-          'data': data
-        },
-          'layout': {
-          //"icon-image": "{icon}-15",
-          //"text-field": "{name}",
-          //"text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-          //"text-offset": [0, 0.6],
-          //"text-anchor": "top"
-          },
-          'paint': {
-            "circle-color": "{color}"
-          //"icon-color": "{color}"
-          }
-        });
-
-
-        /* map.addLayer({
+         map.addLayer({
           'id': 'participants',
           'type': 'symbol',
           'source': {
@@ -91,7 +69,7 @@ $(document).ready(function() {
           'paint': {
           //"icon-color": "{color}"
           }
-        }); */
+        });
 
         window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
