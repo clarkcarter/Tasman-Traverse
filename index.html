@@ -40,7 +40,7 @@ $(document).ready(function() {
      });
 });
 
-window.setTimeout(makeGeoJSON, 10000);
+window.setTimeout(
 
 function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
@@ -73,6 +73,7 @@ function makeGeoJSON(csvData) {
         });
     });
 }
+  , 10000);
 </script>
 
 </body>
