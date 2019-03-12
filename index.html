@@ -75,14 +75,14 @@ function makeGeoJSON(csvData) {
                 }
             });
 
-            window.setTimeout(function() {
-              var bounds = new mapboxgl.LngLatBounds();
-              data.features.forEach(function(feature) {
-                  bounds.extend(feature.geometry.coordinates);
-              });
-              map.fitBounds(bounds, { padding: 100, speed: 0.2 });
-            }, 3000);
-              console.log(data);
+        window.setTimeout(function() {
+          var bounds = new mapboxgl.LngLatBounds();
+          data.features.forEach(function(feature) {
+              bounds.extend(feature.geometry.coordinates);
+          });
+          map.fitBounds(bounds, { padding: 100, speed: 0.2 });
+        }, 3000);
+  };          console.log(data);
         });
     });
 }
