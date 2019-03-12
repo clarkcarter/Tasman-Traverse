@@ -35,8 +35,8 @@ var map = new mapboxgl.Map({
 
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
 
-window.setTimeout(function() {
 
+window.setTimeout(function() {
 
 $(document).ready(function() {
     $.ajax({
@@ -46,7 +46,8 @@ $(document).ready(function() {
         success: function(csvData) {makeGeoJSON(csvData);}
      });
 });
-  }, 5000);
+
+
 
 
 function makeGeoJSON(csvData) {
@@ -70,7 +71,9 @@ function makeGeoJSON(csvData) {
                 "text-offset": [0, 0.6],
                 "text-anchor": "top"
               },
-              'paint': {}
+              'paint': {
+                "icon-color": "{color}"
+              }
           });
 
           window.setTimeout(function() {
@@ -79,13 +82,14 @@ function makeGeoJSON(csvData) {
                 bounds.extend(feature.geometry.coordinates);
             });
             map.fitBounds(bounds, { padding: 100, speed: 0.2 });
-          }, 15000);
+          }, 10000);
 
           console.log(data);
 
         });
     });
 }
+}, 5000);
 
 
 </script>
