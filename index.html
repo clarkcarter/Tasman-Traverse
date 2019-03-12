@@ -31,6 +31,8 @@ var map = new mapboxgl.Map({
 
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
 
+window.setTimeout(
+  
 $(document).ready(function() {
     $.ajax({
         type: "GET",
@@ -39,8 +41,6 @@ $(document).ready(function() {
         success: function(csvData) {makeGeoJSON(csvData);}
      });
 });
-
-window.setTimeout(
 
 function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
