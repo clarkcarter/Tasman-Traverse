@@ -51,7 +51,7 @@ $(document).ready(function() {
       delimiter: ','
     }, function(err, data) {
 
-      map.on('load', function () {
+      map.on('idle', function () {
         map.addLayer({
           'id': 'participants',
           'type': 'symbol',
@@ -78,8 +78,7 @@ $(document).ready(function() {
           });
           map.fitBounds(bounds, {
             padding: 100,
-            speed: 0.2,
-          easing: function (0.2) { return 0.2; } });
+            speed: 0.2
         }, 3000);
       });
 
