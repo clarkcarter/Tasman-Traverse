@@ -72,7 +72,7 @@ function makeGeoJSON(csvData) {
           data.features.forEach(function(feature) {
               bounds.extend(feature.geometry.coordinates);
           });
-          map.fitBounds(bounds, { padding: 100 });
+          map.fitBounds(bounds, { padding: 100, speed: 0.2 });
 
 
 
