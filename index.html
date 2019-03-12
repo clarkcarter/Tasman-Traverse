@@ -40,6 +40,8 @@ $(document).ready(function() {
      });
 });
 
+window.setTimeout(makeGeoJSON, 10000);
+
 function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
         latfield: 'latitude',
