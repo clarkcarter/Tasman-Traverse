@@ -75,7 +75,7 @@ function makeGeoJSON(csvData) {
           });
 
           // Create a popup, but don't add it to the map yet.
-          var popup = new mapboxgl.Popup({
+          /* var popup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false
           });
@@ -104,7 +104,7 @@ function makeGeoJSON(csvData) {
           map.on('mouseleave', 'participants', function() {
             map.getCanvas().style.cursor = '';
             popup.remove();
-          });
+          }); */
 
           console.log(data);
 
