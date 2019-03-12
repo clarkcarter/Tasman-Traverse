@@ -51,7 +51,7 @@ $(document).ready(function() {
       delimiter: ','
     }, function(err, data) {
 
-      map.on('idle', function () {
+      map.once('idle', function () {
         map.addLayer({
           'id': 'participants',
           'type': 'symbol',
