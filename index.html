@@ -47,6 +47,14 @@ function makeGeoJSON(csvData) {
         delimiter: ','
     }, function(err, data) {
         map.on('load', function () {
+          var bounds = new mapboxgl.LngLatBounds();
+
+          markers.features.forEach(function(feature) {
+              bounds.extend(feature.geometry.coordinates);
+          });
+
+          map.fitBounds(bounds);
+          
           map.addLayer({
                 'id': 'participants',
                 'type': 'symbol',
