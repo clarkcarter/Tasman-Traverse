@@ -14,13 +14,15 @@
     <link href='skeleton.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; left:0; width:50%; }
-        #legend { position:absolute; top:80%; bottom:0; right:0; width:50%; }
+        #map { position:absolute; top:0; bottom:0; left:0; width:100%; }
+        #legend { position:relative; width: 100%}
     </style>
 </head>
 <body>
 <div id='map'></div>
-<div id='legend' style="background: #172B4D; color: #fff;"></div>
+<div id='legend' style="background: #172B4D; color: #fff;">
+hello, world.
+</div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
