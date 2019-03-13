@@ -152,7 +152,9 @@ $(document).ready(function() {
                     },
                     "filter": ["==", "name", "Troodles"],
                 });
-         /* map.addLayer({
+
+        // add labels to each circle
+         map.addLayer({
           'id': 'participants',
           'type': 'symbol',
           'source': {
@@ -160,7 +162,7 @@ $(document).ready(function() {
           'data': data
         },
           'layout': {
-          "icon-image": "{icon}-15",
+          //"icon-image": "{icon}-15",
           "text-field": "{name}",
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
           "text-offset": [0, 0.6],
@@ -168,9 +170,6 @@ $(document).ready(function() {
           },
           'paint': {
 
-          },
-          "properties": {
-            "icon-color": "{color}"
           }
         }); */
 
