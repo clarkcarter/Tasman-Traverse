@@ -54,6 +54,12 @@ $(document).ready(function() {
       map.once('idle', function () {
 
         var clarkColor = "#0000ff";
+        var danColor = "#181414";
+        var julienColor = "#0e602d";
+        var mattColor = "#129f31";
+        var mickColor = "#eedd39";
+        var ryanColor = "#f4f2bf";
+        var troodlesColor = "#0033ff";
 
         map.addLayer({
                 "id": "park-volcanoes",
@@ -68,6 +74,71 @@ $(document).ready(function() {
                 },
                 "filter": ["==", "name", "Clark"],
             });
+            map.addLayer({
+                    "id": "park-volcanoes",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": danColor
+                    },
+                    "filter": ["==", "name", "Dan"],
+                });
+            map.addLayer({
+                    "id": "park-volcanoes",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": julienColor
+                    },
+                    "filter": ["==", "name", "Julien"],
+                });
+            map.addLayer({
+                    "id": "park-volcanoes",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": mattColor
+                    },
+                    "filter": ["==", "name", "Matt"],
+                });
+            map.addLayer({
+                    "id": "park-volcanoes",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": ryanColor
+                    },
+                    "filter": ["==", "name", "Ryan"],
+                });
+            map.addLayer({
+                    "id": "park-volcanoes",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": troodlesColor
+                    },
+                    "filter": ["==", "name", "Troodles"],
+                });
          /* map.addLayer({
           'id': 'participants',
           'type': 'symbol',
