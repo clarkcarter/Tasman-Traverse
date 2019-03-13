@@ -53,9 +53,9 @@ $(document).ready(function() {
 
       map.once('idle', function () {
 
-        var colors = JSON.stingify(data);
+        var colors = JSON.stringify(data);
         console.log(colors);
-        
+
         map.addLayer({
                 "id": "park-volcanoes",
                 "type": "circle",
