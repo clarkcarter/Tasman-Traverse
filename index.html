@@ -54,40 +54,18 @@ $(document).ready(function() {
       map.once('idle', function () {
 
         map.addLayer({
-          'id': 'population',
-          'type': 'circle',
-          'source': {
-            'type': 'geojson',
-            'data': data
-          //type: 'vector',
-          //url: 'mapbox://examples.8fgz4egr'
-        },
-        'layout': {
-        "text-field": "{name}",
-        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-        "text-offset": [0, 0.6],
-        "text-anchor": "top",
-        },
-          //'source-layer': 'sf2010',
-          'paint': {
-          // make circles larger as the user zooms from z12 to z22
-            'circle-radius': {
-              'base': 1.75,
-              'stops': [[12, 2], [22, 180]]
-          },
-        // color circles by ethnicity, using a match expression
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': [
-              'match',
-              ['get', 'name'],
-              'clark', '#fbb03b',
-              'Black', '#223b53',
-              'Hispanic', '#e55e5e',
-              'Asian', '#3bb2d0',
-              /* other */ '#ccc'
-            ]
-          }
-      });
+                "id": "park-volcanoes",
+                "type": "circle",
+                "source": {
+                  'type': 'geojson',
+                  'data': data
+                }
+                "paint": {
+                    "circle-radius": 6,
+                    "circle-color": "#B42222"
+                },
+                "filter": ["==", "$type", "Point"],
+            });
          /* map.addLayer({
           'id': 'participants',
           'type': 'symbol',
