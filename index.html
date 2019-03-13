@@ -53,8 +53,7 @@ $(document).ready(function() {
 
       map.once('idle', function () {
 
-        var colors = JSON.stringify(csvData);
-        console.log(colors);
+        var clarkColor = "#0000ff";
 
         map.addLayer({
                 "id": "park-volcanoes",
@@ -65,7 +64,7 @@ $(document).ready(function() {
                 },
                 "paint": {
                     "circle-radius": 6,
-                    "circle-color": "#ff0000"
+                    "circle-color": clarkColor
                 },
                 "filter": ["==", "name", "Clark"],
             });
