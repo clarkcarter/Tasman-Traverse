@@ -52,7 +52,37 @@ $(document).ready(function() {
     }, function(err, data) {
 
       map.once('idle', function () {
-         map.addLayer({
+
+        map.addLayer({
+          'id': 'population',
+          'type': 'circle',
+          'source': {
+            'type': 'geojson',
+            'data': data
+          //type: 'vector',
+          //url: 'mapbox://examples.8fgz4egr'
+        },
+          //'source-layer': 'sf2010',
+          'paint': {
+          // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+              'base': 1.75,
+              'stops': [[12, 2], [22, 180]]
+          },
+        // color circles by ethnicity, using a match expression
+        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': [
+              'match',
+              ['get', 'name'],
+              'clark', '#fbb03b',
+              'Black', '#223b53',
+              'Hispanic', '#e55e5e',
+              'Asian', '#3bb2d0',
+              /* other */ '#ccc'
+            ]
+          }
+      });
+         /* map.addLayer({
           'id': 'participants',
           'type': 'symbol',
           'source': {
@@ -72,7 +102,7 @@ $(document).ready(function() {
           "properties": {
             "icon-color": "{color}"
           }
-        });
+        }); */
 
         window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
