@@ -114,6 +114,19 @@ $(document).ready(function() {
                     "filter": ["==", "name", "Matt"],
                 });
             map.addLayer({
+                    "id": "Mick",
+                    "type": "circle",
+                    "source": {
+                      'type': 'geojson',
+                      'data': data
+                    },
+                    "paint": {
+                        "circle-radius": 6,
+                        "circle-color": mickColor
+                    },
+                    "filter": ["==", "name", "Mick"],
+                });
+            map.addLayer({
                     "id": "Ryan",
                     "type": "circle",
                     "source": {
