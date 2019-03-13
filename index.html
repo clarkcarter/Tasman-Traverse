@@ -52,9 +52,6 @@ $(document).ready(function() {
     }, function(err, data) {
 
       map.once('idle', function () {
-
-        var color = data.color[4];
-
         map.addLayer({
                 "id": "park-volcanoes",
                 "type": "circle",
@@ -68,7 +65,6 @@ $(document).ready(function() {
                 },
                 "filter": ["==", "$type", "Point"],
             });
-            console.log(color);
          /* map.addLayer({
           'id': 'participants',
           'type': 'symbol',
