@@ -20,7 +20,38 @@
 </head>
 <body>
 <div id='map'></div>
-
+<div id='legend'>
+  <div class="container" style="background: #172B4D; color: #fff;">
+    <div class="row">
+      <div class="twelve columns">
+        <table class="u-full-width">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>name</th>
+              <th>Distance from start</th>
+              <th>Distance from finish</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
 var map = new mapboxgl.Map({
@@ -191,36 +222,4 @@ $(document).ready(function() {
 
 </script>
 
-<div id='legend'>
-  <div class="container">
-    <div class="row">
-      <div class="twelve columns">
-        <table class="u-full-width">
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>name</th>
-              <th>Distance from start</th>
-              <th>Distance from finish</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{rank[1]}</td>
-              <td>{name[1]}</td>
-              <td>{distance[1]}</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Dwayne Johnson</td>
-              <td>42</td>
-              <td>Male</td>
-              <td>Hayward</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
