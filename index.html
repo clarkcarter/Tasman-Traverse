@@ -53,6 +53,8 @@ $(document).ready(function() {
 
       map.once('idle', function () {
 
+        var color = "{color}";
+
         map.addLayer({
                 "id": "park-volcanoes",
                 "type": "circle",
@@ -62,7 +64,7 @@ $(document).ready(function() {
                 },
                 "paint": {
                     "circle-radius": 6,
-                    "circle-color": "#00FF00"
+                    "circle-color": color
                 },
                 "filter": ["==", "$type", "Point"],
             });
