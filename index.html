@@ -52,6 +52,8 @@ $(document).ready(function() {
     }, function(err, data) {
 
       map.once('idle', function () {
+
+        var color = "#ffffff";
         map.addLayer({
                 "id": "park-volcanoes",
                 "type": "circle",
@@ -61,9 +63,9 @@ $(document).ready(function() {
                 },
                 "paint": {
                     "circle-radius": 6,
-                    "circle-color": "#0000ff"
+                    "circle-color": color
                 },
-                "filter": ["==", "$type", "Point"],
+                "filter": ["==", "name", "clark"],
             });
          /* map.addLayer({
           'id': 'participants',
