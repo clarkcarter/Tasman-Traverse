@@ -121,7 +121,8 @@ $(document).ready(function() {
 
           // Populate the popup and set its coordinates
           // based on the feature found.
-          popup.setLngLat(coordinates)
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
             .setHTML(
               '<h6><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
               '<table class="stats-table">' +
@@ -195,7 +196,8 @@ $(document).ready(function() {
 
           // Populate the popup and set its coordinates
           // based on the feature found.
-          popup.setLngLat(coordinates)
+          new mapboxgl.Popup()
+            .setLngLat(coordinates)
             .setHTML(
               '<h6><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
               '<table class="stats-table">' +
