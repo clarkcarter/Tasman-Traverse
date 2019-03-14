@@ -31,18 +31,7 @@
 <div id='map'></div>
 
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/clarkcarter/cjt47ckbc3f8u1fmrox7uilg9', //stylesheet location
-    center: [ 161.790582, -36.213924
-], // starting position
-    zoom: 2.94 // starting zoom
-});
-
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
-
-  setTimeout(function(){ console.log("waited 5s"); }, 5000);
 
 $(document).ready(function() {
     $.ajax({
@@ -52,6 +41,17 @@ $(document).ready(function() {
         success: function(csvData) {makeGeoJSON(csvData);}
      });
 });
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2xhcmtjYXJ0ZXIiLCJhIjoiY2p0MHpnaXBmMDNxNDQ5cGd5dXk2Mzh5eCJ9.Pqxx2YDY44GbuMmlIt1t-g';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/clarkcarter/cjt47ckbc3f8u1fmrox7uilg9', //stylesheet location
+    center: [ 161.790582, -36.213924
+], // starting position
+    zoom: 2.94 // starting zoom
+});
+
+
 
 
   function makeGeoJSON(csvData) {
