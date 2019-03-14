@@ -173,9 +173,98 @@ $(document).ready(function() {
             .addTo(map);
         });
 
-        map.on('mouseleave', 'participants', function() {
+        map.on('click', 'names', function(e) {
+        // Change the cursor style as a UI indicator.
+          map.getCanvas().style.cursor = 'pointer';
+
+          var coordinates = e.features[0].geometry.coordinates.slice();
+          var name = e.features[0].properties.name;
+          var rank = e.features[0].properties.rankOrd;
+          var runAct = e.features[0].properties.runAct;
+          var runAdj = e.features[0].properties.runAdj;
+          var rowAct = e.features[0].properties.rowAct;
+          var rowAdj = e.features[0].properties.rowAdj;
+          var cycleAct = e.features[0].properties.cycleAct;
+          var cycleAdj = e.features[0].properties.cycleAdj;
+          var distanceAdj = e.features[0].properties.distanceAdj;
+          var remaining = e.features[0].properties.remaining;
+
+          // Ensure that if the map is zoomed out such that multiple
+          // copies of the feature are visible, the popup appears
+          // over the copy being pointed to.
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup.setLngLat(coordinates)
+            .setHTML(
+              '<h6><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
+              '<table class="stats-table">' +
+                '<thead style="text-align: center">' +
+                  '<tr>' +
+                    '<th></th>' +
+                    '<th>Actual</th>' +
+                    '<th>Factor</th>' +
+                    '<th>Adjusted</th>' +
+                  '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                  '<tr>' +
+                    '<td class="padding-left"><strong>Run</strong></td>' +
+                    '<td>' + runAct + '</td>' +
+                    '<td>' + '2.5' + '</td>' +
+                    '<td>' + runAdj + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td class="padding-left"><strong>Row</strong></td>' +
+                    '<td>' + rowAct + '</td>' +
+                    '<td>' + '1.2' + '</td>' +
+                    '<td>' + rowAdj + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td class="padding-left"><strong>Cycle</strong></td>' +
+                    '<td>' + cycleAct + '</td>' +
+                    '<td>' + '0.8' + '</td>' +
+                    '<td>' + cycleAdj + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td><strong><span style="padding-top:20px;">Total: </span></strong></td>' +
+                    '<td>' + distanceAdj + ' km</td>' +
+                  '</tr>' +
+                  '<tr  style="border-top: hidden;">' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td><strong><span style="padding-bottom: 20px;">Remaining: </span></strong></td>' +
+                    '<td>' + remaining + ' km</td>' +
+                  '</tr>' +
+                '</tbody>' +
+              '</table>'
+            )
+            .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'participants', function () {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'participants', function () {
           map.getCanvas().style.cursor = '';
-          popup.remove();
+        });
+
+        // Change the cursor to a pointer when the mouse is over the places layer.
+        map.on('mouseenter', 'names', function () {
+          map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'names', function () {
+          map.getCanvas().style.cursor = '';
         });
 
         window.setTimeout(function() {
