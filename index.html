@@ -101,7 +101,7 @@ $(document).ready(function() {
           map.getCanvas().style.cursor = 'pointer';
 
           var coordinates = e.features[0].geometry.coordinates.slice();
-          var name = e.features[0].properties.name;
+          var stats = e.features[0].properties.stats;
 
           // Ensure that if the map is zoomed out such that multiple
           // copies of the feature are visible, the popup appears
@@ -130,7 +130,7 @@ $(document).ready(function() {
           map.fitBounds(bounds, {
             padding: 100,
             speed: 0.2 });
-        }, 3000);
+        }, 2000);
       });
 
     console.log(data);
