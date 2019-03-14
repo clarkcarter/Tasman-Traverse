@@ -42,6 +42,8 @@ var map = new mapboxgl.Map({
 
 var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
 
+  setTimeout(function(){ console.log("waited 5s"); }, 5000);
+
 $(document).ready(function() {
     $.ajax({
         type: "GET",
@@ -50,6 +52,7 @@ $(document).ready(function() {
         success: function(csvData) {makeGeoJSON(csvData);}
      });
 });
+
 
   function makeGeoJSON(csvData) {
     csv2geojson.csv2geojson(csvData, {
