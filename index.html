@@ -114,7 +114,51 @@ $(document).ready(function() {
           // Populate the popup and set its coordinates
           // based on the feature found.
           popup.setLngLat(coordinates)
-            .setHTML('<p><strong>' + name + '</strong> | ' + rank + ' place</p>')
+            .setHTML(
+              '<p><strong>' + name + '</strong> | ' + rank + ' place</p><br />' +
+              '<table class="stats-table" style="border: 1px solid #ddd;">' +
+                '<thead>' +
+                  '<tr>' +
+                    '<th></th>' +
+                    '<th>Actual</th>' +
+                    '<th>Factor</th>' +
+                    '<th>Adjusted</th>' +
+                  '</tr>' +
+                '</thead>' +
+                '<tbody>' +
+                  '<tr>' +
+                    '<td><strong>Run</strong></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td><strong>Row</strong></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td><strong>Cycle</strong></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                  '</tr>' +
+                  '<tr>' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td><strong><span class="u-pull-right" style="padding-top:20px;">Total: </span></strong></td>' +
+                    '<td></td>' +
+                  '</tr>' +
+                  '<tr  style="border-top: hidden;">' +
+                    '<td></td>' +
+                    '<td></td>' +
+                    '<td><strong><span class="u-pull-right" style="padding-bottom: 20px;">Remaining: </span></strong></td>' +
+                    '<td></td>' +
+                  '</tr>' +
+                '</tbody>' +
+              '</table>'
+            )
             .addTo(map);
         });
 
