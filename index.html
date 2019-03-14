@@ -57,125 +57,24 @@ $(document).ready(function() {
 
       map.once('idle', function () {
 
-        var clarkColor = "#0000ff";
-        var danColor = "#181414";
-        var julienColor = "#0e602d";
-        var mattColor = "#129f31";
-        var mickColor = "#eedd39";
-        var ryanColor = "#f4f2bf";
-        var troodlesColor = "#ffff00";
-
         map.addLayer({
-                "id": "Clark",
-                "type": "circle",
-                "source": {
-                  'type': 'geojson',
-                  'data': data
-                },
-                "paint": {
-                    "circle-radius": 6,
-                    "circle-color": clarkColor
-                },
-                "filter": ["==", "name", "Clark"],
-            });
-            map.addLayer({
-                    "id": "Dan",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": danColor
-                    },
-                    "filter": ["==", "name", "Dan"],
-                });
-            map.addLayer({
-                    "id": "Julien",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": { type: "identity", property: "color" }
-                    }
-                    //"filter": ["==", "name", "Julien"],
-                });
-            map.addLayer({
-                    "id": "Matt",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": mattColor
-                    },
-                    "filter": ["==", "name", "Matt"],
-                });
-            map.addLayer({
-                    "id": "Mick",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": mickColor
-                    },
-                    "filter": ["==", "name", "Mick"],
-                });
-            map.addLayer({
-                    "id": "Ryan",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": ryanColor
-                    },
-                    "filter": ["==", "name", "Ryan"],
-                });
-            map.addLayer({
-                    "id": "Troodles",
-                    "type": "circle",
-                    "source": {
-                      'type': 'geojson',
-                      'data': data
-                    },
-                    "paint": {
-                        "circle-radius": 6,
-                        "circle-color": troodlesColor
-                    },
-                    "filter": ["==", "name", "Troodles"],
-                });
-
-        // add labels to each circle
-         map.addLayer({
-          'id': 'participants',
-          'type': 'symbol',
-          'source': {
-          'type': 'geojson',
-          'data': data
-        },
+          "id": "participants",
+          "type": "circle",
+          "source": {
+            'type': 'geojson',
+            'data': data
+          },
           'layout': {
-          //"icon-image": "{icon}-15",
-          "text-field": "{name}",
+\                    "text-field": "{name}",
           "text-font": ["Open Sans Regular", "Arial Unicode MS Bold"],
           "text-offset": [0, 0.6],
           "text-anchor": "top",
           "text-size": 12,
           "text-allow-overlap": false
           },
-          'paint': {
-
+          "paint": {
+            "circle-radius": 6,
+            "circle-color": { type: "identity", property: "color" }
           }
         });
 
@@ -185,7 +84,7 @@ $(document).ready(function() {
           closeOnClick: false
         });
 
-        map.on('mouseenter', 'circle', function(e) {
+        map.on('mouseenter', 'participants', function(e) {
         // Change the cursor style as a UI indicator.
           map.getCanvas().style.cursor = 'pointer';
 
@@ -206,7 +105,7 @@ $(document).ready(function() {
             .addTo(map);
         });
 
-        map.on('mouseleave', 'places', function() {
+        map.on('mouseleave', 'participants', function() {
           map.getCanvas().style.cursor = '';
           popup.remove();
         });
