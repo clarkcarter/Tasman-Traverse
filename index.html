@@ -103,6 +103,14 @@ $(document).ready(function() {
           var coordinates = e.features[0].geometry.coordinates.slice();
           var name = e.features[0].properties.name;
           var rank = e.features[0].properties.rankOrd;
+          var runAct = e.features[0].properties.runAct;
+          var runAdj = e.features[0].properties.runAdj;
+          var rowAct = e.features[0].properties.rowAct;
+          var rowAdj = e.features[0].properties.rowAdj;
+          var cycleAct = e.features[0].properties.cycleAct;
+          var cycleAdj = e.features[0].properties.cycleAdj;
+          var distanceAdj = e.features[0].properties.distanceAdj;
+          var remaining = e.features[0].properties.remaining;
 
           // Ensure that if the map is zoomed out such that multiple
           // copies of the feature are visible, the popup appears
@@ -128,33 +136,33 @@ $(document).ready(function() {
                 '<tbody>' +
                   '<tr>' +
                     '<td><strong>Run</strong></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
+                    '<td>' + runAct + '</td>' +
+                    '<td>' + '2.5' + '</td>' +
+                    '<td>' + runAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td><strong>Row</strong></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
+                    '<td>' + rowAct + '</td>' +
+                    '<td>' + '1.2' + '</td>' +
+                    '<td>' + rowAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td><strong>Cycle</strong></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
-                    '<td></td>' +
+                    '<td>' + cycleAct + '</td>' +
+                    '<td>' + '0.8' + '</td>' +
+                    '<td>' + cycleAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td></td>' +
                     '<td></td>' +
                     '<td><strong><span class="u-pull-right" style="padding-top:20px;">Total: </span></strong></td>' +
-                    '<td></td>' +
+                    '<td>' + distanceAdj + '</td>' +
                   '</tr>' +
                   '<tr  style="border-top: hidden;">' +
                     '<td></td>' +
                     '<td></td>' +
                     '<td><strong><span class="u-pull-right" style="padding-bottom: 20px;">Remaining: </span></strong></td>' +
-                    '<td></td>' +
+                    '<td>' + remaining + '</td>' +
                   '</tr>' +
                 '</tbody>' +
               '</table>'
