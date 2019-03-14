@@ -113,7 +113,11 @@ $(document).ready(function() {
           // Populate the popup and set its coordinates
           // based on the feature found.
           popup.setLngLat(coordinates)
-            .setHTML("<strong>name</strong>")
+            .setHTML(
+              "<strong>"name"</strong><br />"
+              "<p>"distance" km</p><br />"
+              "<p>Rank: "rank"</p>"
+            )
             .addTo(map);
         });
 
