@@ -48,81 +48,127 @@ $(document).ready(function() {
      });
 });
 
-function makeGeoJSON(csvData) {
-  csv2geojson.csv2geojson(csvData, {
-    latfield: 'latitude',
-    lonfield: 'longitude',
-    delimiter: ','
-  }, function(err, data) {
+  function makeGeoJSON(csvData) {
+    csv2geojson.csv2geojson(csvData, {
+      latfield: 'latitude',
+      lonfield: 'longitude',
+      delimiter: ','
+    }, function(err, data) {
 
-    map.once('idle', function () {
+      map.once('idle', function () {
 
-      map.addLayer({
-        "id": "participants",
-        "type": "circle",
-        "source": {
+        map.addLayer({
+          "id": "participants",
+          "type": "circle",
+          "source": {
+            'type': 'geojson',
+            'data': data
+          },
+          'layout': {
+\                    "text-field": "{name}",
+          "text-font": ["Open Sans Regular", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top",
+          "text-size": 12,
+          "text-allow-overlap": false
+          },
+          "paint": {
+            "circle-radius": 6,
+            "circle-color": { type: "identity", property: "color" }
+          }
+        });
+
+
+        // add labels to each circle
+        map.addLayer({
+          'id': 'names',
+          'type': 'symbol',
+          'source': {
           'type': 'geojson',
           'data': data
         },
-        'layout': {
-        "text-field": "{name}",
-        "text-font": ["Open Sans Regular", "Arial Unicode MS Bold"],
-        "text-offset": [0, 0.6],
-        "text-anchor": "top",
-        "text-size": 12,
-        "text-allow-overlap": false
-        },
-        "paint": {
-          "circle-radius": 6,
-          "circle-color": { type: "identity", property: "color" }
-        }
-      });
-
-      // Create a popup, but don't add it to the map yet.
-      var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
-      });
-
-      map.on('mouseenter', 'participants', function(e) {
-      // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
-
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var name = e.features[0].properties.name;
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates)
-          .setHTML(name)
-          .addTo(map);
-      });
-
-      map.on('mouseleave', 'participants', function() {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      window.setTimeout(function() {
-        var bounds = new mapboxgl.LngLatBounds();
-        data.features.forEach(function(feature) {
-        bounds.extend(feature.geometry.coordinates);
+          'layout': {
+          //"icon-image": "{icon}-15",
+          "text-field": "{name}",
+          "text-font": ["Open Sans Regular", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0.6],
+          "text-anchor": "top",
+          "text-size": 12,
+          "text-allow-overlap": false
+          }
         });
-        map.fitBounds(bounds, {
-          padding: 100,
-          speed: 0.2 });
-      }, 3000);
-    });
+
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+          closeButton: false,
+          closeOnClick: false
+        });
+
+        map.on('mouseenter', 'participants', function(e) {
+        // Change the cursor style as a UI indicator.
+          map.getCanvas().style.cursor = 'pointer';
+
+          var coordinates = e.features[0].geometry.coordinates.slice();
+          var name = e.features[0].properties.name;
+
+          // Ensure that if the map is zoomed out such that multiple
+          // copies of the feature are visible, the popup appears
+          // over the copy being pointed to.
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup.setLngLat(coordinates)
+            .setHTML(name)
+            .addTo(map);
+        });
+
+        map.on('mouseleave', 'participants', function() {
+          map.getCanvas().style.cursor = '';
+          popup.remove();
+        });
+
+        map.on('mouseenter', 'names', function(e) {
+        // Change the cursor style as a UI indicator.
+          map.getCanvas().style.cursor = 'pointer';
+
+          var coordinates = e.features[0].geometry.coordinates.slice();
+          var name = e.features[0].properties.name;
+
+          // Ensure that if the map is zoomed out such that multiple
+          // copies of the feature are visible, the popup appears
+          // over the copy being pointed to.
+          while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+          }
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          popup.setLngLat(coordinates)
+            .setHTML(name)
+            .addTo(map);
+        });
+
+        map.on('mouseleave', 'names', function() {
+          map.getCanvas().style.cursor = '';
+          popup.remove();
+        });
+
+        window.setTimeout(function() {
+          var bounds = new mapboxgl.LngLatBounds();
+          data.features.forEach(function(feature) {
+          bounds.extend(feature.geometry.coordinates);
+          });
+          map.fitBounds(bounds, {
+            padding: 100,
+            speed: 0.2 });
+        }, 3000);
+      });
 
     console.log(data);
-  });
+});
 }
 
 
