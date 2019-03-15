@@ -14,7 +14,7 @@
     <link href='skeleton.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; left:0; width:100%; z-index: 1;}
+        #map { position:absolute; top:24px; bottom:0; left:0; width:100%; z-index: 1;}
         #countup1 { position:absolute; top:0; width:100%; z-index: 2; }
     </style>
 </head>
@@ -27,7 +27,12 @@
   .padding-left { padding-left: 15px; }
   th, td { text-align: center;}
   .stats-table { padding: 15px; background: #f9f9f9; margin-top: 10px; }
-  #countup1 {background: #fff; padding: 15px; }
+  #countup1 {
+    background: #f9f9f9;
+    padding: 15px 0;
+    text-align: center;
+    height: 24px
+  }
 </style>
 
 <div id='map'></div>
