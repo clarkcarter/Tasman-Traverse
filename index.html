@@ -264,7 +264,7 @@ $(document).ready(function() {
           map.getCanvas().style.cursor = '';
         });
 
-        window.setTimeout(function() {
+        //window.setTimeout(function() {
           var bounds = new mapboxgl.LngLatBounds();
           data.features.forEach(function(feature) {
           bounds.extend(feature.geometry.coordinates);
@@ -272,7 +272,7 @@ $(document).ready(function() {
           map.fitBounds(bounds, {
             padding: 100,
             speed: 0.2 });
-        }, 1000);
+        //}, 1000);
       });
 
     console.log(data);
