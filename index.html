@@ -15,7 +15,7 @@
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:24px; bottom:0; left:0; width:100%; z-index: 1;}
-        #countup1 { position:absolute; top:0; width:100%; z-index: 2; }
+        #banner { position:absolute; top:0; width:100%; height: 20px; z-index: 2; background: rgb(6,28,59); }
     </style>
 </head>
 <body>
@@ -27,25 +27,23 @@
   .padding-left { padding-left: 15px; }
   th, td { text-align: center;}
   .stats-table { padding: 15px; background: #f9f9f9; margin-top: 10px; }
-  #countup1 {
-    background: #f9f9f9;
-    padding: 15px 0;
-    text-align: center;
-    height: 24px
-  }
+
 </style>
 
 <div id='map'></div>
-<div class="countup" id="countup1">
-  <span class="timeel days">00</span>
-  <span class="timeel timeRefDays">DAYS</span>
-  <span class="timeel hours">00</span>
-  <span class="timeel timeRefHours">HOURS</span>
-  <span class="timeel minutes">00</span>
-  <span class="timeel timeRefMinutes">MINS</span>
-  <span class="timeel seconds">00</span>
-  <span class="timeel timeRefSeconds">SECS</span>
+<div class="banner">
+  <div class="countup" id="countup1">
+    <span class="timeel days">00</span>
+    <span class="timeel timeRefDays">DAYS</span>
+    <span class="timeel hours">00</span>
+    <span class="timeel timeRefHours">HOURS</span>
+    <span class="timeel minutes">00</span>
+    <span class="timeel timeRefMinutes">MINS</span>
+    <span class="timeel seconds">00</span>
+    <span class="timeel timeRefSeconds">SECS</span>
+  </div>
 </div>
+
 
 <script>
 
