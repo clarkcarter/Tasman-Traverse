@@ -25,7 +25,7 @@
   }
   .padding-left { padding-left: 15px; }
   th, td { text-align: center;}
-  .stats-table { padding: 15px; background: #f9f9f9; }
+  .stats-table { padding: 15px; background: #f9f9f9; margin-top: 10px; }
 </style>
 
 <div id='map'></div>
@@ -125,7 +125,7 @@ var map = new mapboxgl.Map({
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
-              '<h6><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
+              '<h6 style="margin-bottom:0;"><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
               '<strong>Last activity: </strong>' + lastUpdate +
               '<table class="stats-table">' +
                 '<thead style="text-align: center">' +
