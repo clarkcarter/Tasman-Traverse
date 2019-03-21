@@ -2,5 +2,32 @@
 <head>
 </head>
 <body>
-"{"geometry": {"type": "Point", "coordinates": [-43.3370480142859, 41.65289008625546]}, "type": "Feature", "properties": {}}" == $0
+  <script>
+  var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
+
+  $(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: dataUrl,
+        dataType: "text",
+        success: function(csvData) {makeGeoJSON(csvData);}
+     });
+  });
+
+  function makeGeoJSON(csvData) {
+    csv2geojson.csv2geojson(csvData, {
+      latfield: 'latitude',
+      lonfield: 'longitude',
+      delimiter: ','
+    }, function(err, data) {
+
+        console.log(data);
+
+    });
+  }
+
+
+  </script>
+  hi
+</body>
 </html>
