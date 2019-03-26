@@ -49,7 +49,7 @@ map.on('load', function () {
         }
     }); */
     map.addLayer({
-      "id": "participants",
+      "id": "drone",
       "type": "circle",
       "source": {
         'type': 'geojson',
@@ -57,7 +57,7 @@ map.on('load', function () {
       },
       "paint": {
         "circle-radius": 7,
-        "circle-color": { type: "identity", property: "color" },
+        //"circle-color": { type: "identity", property: "color" },
         "circle-stroke-width": 1,
         "circle-stroke-color": "#ffffff"
       }
