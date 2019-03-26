@@ -51,10 +51,7 @@ map.on('load', function () {
     map.addLayer({
       "id": "drone",
       "type": "circle",
-      "source": {
-        'type': 'geojson',
-        'data': "drone"
-      },
+      "source": "drone",
       "paint": {
         "circle-radius": 7,
         //"circle-color": { type: "identity", property: "color" },
