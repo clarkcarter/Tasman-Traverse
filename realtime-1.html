@@ -23,7 +23,17 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = {type: "Feature", properties: Object, geometry: {type: "Point", coordinates: [151.8225053, -34.06146762]}};
+var url = {
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": { "name": "Null Island" },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [ 151.2102385,-33.85478235 ]
+      }
+  }]
+};
 map.on('load', function () {
     window.setInterval(function() {
         map.getSource('drone').setData(url);
