@@ -108,6 +108,8 @@ $(document).ready(function() {
       delimiter: ','
     }, function(err, data) {
 
+      console.log(data);
+      
       map.once('idle', function () {
 
         map.addLayer({
