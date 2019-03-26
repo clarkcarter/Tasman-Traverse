@@ -23,20 +23,34 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = 'https://www.tasmantraverse.com/coords';
+var url = '{type: "Feature", properties: Object, geometry: {type: "Point", coordinates: [151.8225053, -34.06146762]}}';
 map.on('load', function () {
     window.setInterval(function() {
         map.getSource('drone').setData(url);
     }, 2000);
 
     map.addSource('drone', { type: 'geojson', data: url });
-    map.addLayer({
+    /* map.addLayer({
         "id": "drone",
         "type": "symbol",
         "source": "drone",
         "layout": {
             "icon-image": "rocket-15"
         }
+    }); */
+    map.addLayer({
+      "id": "participants",
+      "type": "circle",
+      "source": {
+        'type': 'geojson',
+        'data': "drone"
+      },
+      "paint": {
+        "circle-radius": 7,
+        "circle-color": { type: "identity", property: "color" },
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#ffffff"
+      }
     });
 });
 </script>
