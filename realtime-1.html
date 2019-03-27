@@ -4,6 +4,8 @@
     <meta charset='utf-8' />
     <title>Add live realtime data</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src='csv2geojson.js'></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -23,7 +25,26 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var url = {
+var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: dataUrl,
+        dataType: "text",
+        success: function(csvData) {makeGeoJSON(csvData);}
+     });
+});
+
+function makeGeoJSON(csvData) {
+  csv2geojson.csv2geojson(csvData, {
+    latfield: 'latitude',
+    lonfield: 'longitude',
+    delimiter: ','
+  }, function(err, data) {
+
+
+/* var url = {
   "type": "FeatureCollection",
   "features": [{
       "type": "Feature",
@@ -32,34 +53,30 @@ var url = {
           "type": "Point",
           "coordinates": [ 151.2102385,-33.85478235 ]
       }
-  }]
-};
-map.on('load', function () {
-    window.setInterval(function() {
-        map.getSource('drone').setData(url);
-    }, 2000);
+    }]
+  }; */
 
-    map.addSource('drone', { type: 'geojson', data: url });
-    /* map.addLayer({
+  var url = data;
+  
+  map.on('load', function () {
+      window.setInterval(function() {
+          map.getSource('drone').setData(url);
+      }, 2000);
+
+      map.addSource('drone', { type: 'geojson', data: url });
+      map.addLayer({
         "id": "drone",
-        "type": "symbol",
+        "type": "circle",
         "source": "drone",
-        "layout": {
-            "icon-image": "rocket-15"
+        "paint": {
+          "circle-radius": 7,
+          //"circle-color": { type: "identity", property: "color" },
+          "circle-stroke-width": 1,
+          "circle-stroke-color": "#ffffff"
         }
-    }); */
-    map.addLayer({
-      "id": "drone",
-      "type": "circle",
-      "source": "drone",
-      "paint": {
-        "circle-radius": 7,
-        //"circle-color": { type: "identity", property: "color" },
-        "circle-stroke-width": 1,
-        "circle-stroke-color": "#ffffff"
-      }
-    });
-});
+      });
+  });
+}
 </script>
 
 </body>
