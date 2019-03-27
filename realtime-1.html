@@ -42,7 +42,7 @@ function makeGeoJSON(csvData) {
     lonfield: 'longitude',
     delimiter: ','
   }, function(err, data) {
-
+    coords = data;
   });
   }
 /* var url = {
@@ -57,7 +57,7 @@ function makeGeoJSON(csvData) {
     }]
   }; */
 
-  var url = data;
+  var url = coords;
 
   map.on('load', function () {
       window.setInterval(function() {
