@@ -62,6 +62,8 @@ function makeGeoJSON(csvData) {
       window.setInterval(function() {
           map.getSource('drone').setData(url);
       }, 2000);
+      
+      console.log(url);
 
       map.addSource('drone', { type: 'geojson', data: url });
       map.addLayer({
