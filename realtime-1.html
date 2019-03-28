@@ -59,7 +59,7 @@ var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7
       lonfield: 'longitude',
       delimiter: ','
     }, function(err, data) {
-      url = data;
+      //url = data;
     });
   }
 
@@ -76,6 +76,7 @@ var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7
     }]
   }; */
 
+url = 'https://github.com/clarkcarter/Tasman-Traverse/blob/master/coords.geojson';
   map.on('load', function () {
       window.setInterval(function() {
           map.getSource('drone').setData(url);
