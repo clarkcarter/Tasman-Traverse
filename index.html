@@ -90,7 +90,7 @@ var map = new mapboxgl.Map({
 });
 
 
-var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
+var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQrZPKWMKMm5ikh1tZMqE-MscXkz9xUsTpjtL2SkgzIaP1GGxO_Vk-l-RHdMfx8qKKtFrHHnxktuYcS/pub?output=csv";
 
 $(document).ready(function() {
     $.ajax({
@@ -109,7 +109,7 @@ $(document).ready(function() {
     }, function(err, data) {
 
       console.log(data);
-      
+
       map.once('idle', function () {
 
         map.addLayer({
