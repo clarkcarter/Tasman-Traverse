@@ -25,26 +25,7 @@ var map = new mapboxgl.Map({
     zoom: 0
 });
 
-var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7xVuOJWoehmZAN7b0pwWXQ3kBYMm8S0VB0BVTkyyoYw52onHySJmQkmLE74EAvp/pub?gid=577896986&single=true&output=csv";
-
-  $(document).ready(function() {
-      $.ajax({
-          type: "GET",
-          url: dataUrl,
-          dataType: "text",
-          success: function(csvData) {makeGeoJSON(csvData);}
-       });
-  });
-
-  function makeGeoJSON(csvData) {
-    csv2geojson.csv2geojson(csvData, {
-      latfield: 'latitude',
-      lonfield: 'longitude',
-      delimiter: ','
-    }, function(err, data) {
-      url = data;
-    });
-  }
+var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQrZPKWMKMm5ikh1tZMqE-MscXkz9xUsTpjtL2SkgzIaP1GGxO_Vk-l-RHdMfx8qKKtFrHHnxktuYcS/pub?output=csv";
 
   $.ajax({
       type: "GET",
@@ -59,7 +40,7 @@ var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7
       lonfield: 'longitude',
       delimiter: ','
     }, function(err, data) {
-      //url = data;
+      url = data;
     });
   }
 
@@ -76,7 +57,7 @@ var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7
     }]
   }; */
 
-var url = 'https://www.tasmantraverse.com/coords.geojson';
+//var url = 'https://www.tasmantraverse.com/coords.geojson';
   map.on('load', function () {
       window.setInterval(function() {
           map.getSource('drone').setData(url);
