@@ -46,7 +46,6 @@ var dataUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSJHEq3YOJbEbwTR7
     });
   }
 
-window.setInterval(function() {
   $.ajax({
       type: "GET",
       url: dataUrl,
@@ -63,7 +62,7 @@ window.setInterval(function() {
       url = data;
     });
   }
-}, 2000);
+
 
 /* var url = {
   "type": "FeatureCollection",
