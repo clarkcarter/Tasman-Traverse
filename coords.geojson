@@ -1,0 +1,180 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Clark",
+        "distanceAdj": "600",
+        "rank": "1",
+        "color": "#ffffff",
+        "rankOrd": "1st",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "500",
+        "rowAdj": "600",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "1447",
+        "lastUpdate": " "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          157.0935988,
+          -36.15226408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dan",
+        "distanceAdj": "0",
+        "rank": "3",
+        "color": "#ffbf00",
+        "rankOrd": "3rd",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2047",
+        "lastUpdate": "Date"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2102385,
+          -33.85478235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Julien",
+        "distanceAdj": "0",
+        "rank": "3",
+        "color": "#e83f6f",
+        "rankOrd": "3rd",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2047",
+        "lastUpdate": "Date"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2102385,
+          -33.85478235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Matt",
+        "distanceAdj": "0",
+        "rank": "3",
+        "color": "#2274a5",
+        "rankOrd": "3rd",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2047",
+        "lastUpdate": "Date"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2102385,
+          -33.85478235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Mick",
+        "distanceAdj": "0",
+        "rank": "3",
+        "color": "#32936f",
+        "rankOrd": "3rd",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2047",
+        "lastUpdate": "Date"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2102385,
+          -33.85478235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Ryan",
+        "distanceAdj": "5",
+        "rank": "2",
+        "color": "#ff0000",
+        "rankOrd": "2nd",
+        "runAct": "2",
+        "runAdj": "5",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2042",
+        "lastUpdate": "1 Mar 2019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2551409,
+          -33.84836484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "True",
+        "distanceAdj": "0",
+        "rank": "3",
+        "color": "#ffff00",
+        "rankOrd": "3rd",
+        "runAct": "0",
+        "runAdj": "0",
+        "rowAct": "0",
+        "rowAdj": "0",
+        "cycleAct": "0",
+        "cycleAdj": "0",
+        "remaining": "2047",
+        "lastUpdate": "Date"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          151.2102385,
+          -33.85478235
+        ]
+      }
+    }
+  ]
+}
