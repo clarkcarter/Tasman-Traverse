@@ -252,6 +252,7 @@ $(document).ready(function() {
           var cycleAdj = e.features[0].properties.cycleAdj;
           var distanceAdj = e.features[0].properties.distanceAdj;
           var remaining = e.features[0].properties.remaining;
+          var lastUpdate = e.features[0].properties.lastUpdate;
 
           // Ensure that if the map is zoomed out such that multiple
           // copies of the feature are visible, the popup appears
@@ -265,7 +266,7 @@ $(document).ready(function() {
           new mapboxgl.Popup()
             .setLngLat(coordinates)
             .setHTML(
-              '<h6><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
+              '<h6 style="margin-bottom:0;"><strong>' + name + '</strong>' + "  " + rank + ' place</h6>' +
               '<strong>Last activity: </strong>' + lastUpdate +
               '<table class="stats-table">' +
                 '<thead style="text-align: center">' +
