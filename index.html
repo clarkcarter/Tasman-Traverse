@@ -159,6 +159,8 @@ $(document).ready(function() {
           var rank = e.features[0].properties.rankOrd;
           var runAct = e.features[0].properties.runAct;
           var runAdj = e.features[0].properties.runAdj;
+          var walkAct = e.features[0].properties.walkAct;
+          var walkAdj = e.features[0].properties.walkAdj;
           var rowAct = e.features[0].properties.rowAct;
           var rowAdj = e.features[0].properties.rowAdj;
           var cycleAct = e.features[0].properties.cycleAct;
@@ -192,21 +194,27 @@ $(document).ready(function() {
                 '</thead>' +
                 '<tbody>' +
                   '<tr>' +
+                    '<td class="padding-left"><strong>Cycle</strong></td>' +
+                    '<td>' + walkAct + '</td>' +
+                    '<td>' + '1.00' + '</td>' +
+                    '<td>' + walkAdj + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
                     '<td class="padding-left"><strong>Run</strong></td>' +
                     '<td>' + runAct + '</td>' +
-                    '<td>' + '2.5' + '</td>' +
+                    '<td>' + '1.00' + '</td>' +
                     '<td>' + runAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td class="padding-left"><strong>Row</strong></td>' +
                     '<td>' + rowAct + '</td>' +
-                    '<td>' + '1.2' + '</td>' +
+                    '<td>' + '1.00' + '</td>' +
                     '<td>' + rowAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td class="padding-left"><strong>Cycle</strong></td>' +
                     '<td>' + cycleAct + '</td>' +
-                    '<td>' + '0.8' + '</td>' +
+                    '<td>' + '0.23' + '</td>' +
                     '<td>' + cycleAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
@@ -236,6 +244,8 @@ $(document).ready(function() {
           var rank = e.features[0].properties.rankOrd;
           var runAct = e.features[0].properties.runAct;
           var runAdj = e.features[0].properties.runAdj;
+          var walkAct = e.features[0].properties.walkAct;
+          var walkAdj = e.features[0].properties.walkAdj;
           var rowAct = e.features[0].properties.rowAct;
           var rowAdj = e.features[0].properties.rowAdj;
           var cycleAct = e.features[0].properties.cycleAct;
@@ -267,6 +277,12 @@ $(document).ready(function() {
                 '</thead>' +
                 '<tbody>' +
                   '<tr>' +
+                    '<td class="padding-left"><strong>Cycle</strong></td>' +
+                    '<td>' + walkAct + '</td>' +
+                    '<td>' + '1.00' + '</td>' +
+                    '<td>' + walkAdj + '</td>' +
+                  '</tr>' +
+                  '<tr>' +
                     '<td class="padding-left"><strong>Run</strong></td>' +
                     '<td>' + runAct + '</td>' +
                     '<td>' + '1.00' + '</td>' +
@@ -283,12 +299,6 @@ $(document).ready(function() {
                     '<td>' + cycleAct + '</td>' +
                     '<td>' + '0.23' + '</td>' +
                     '<td>' + cycleAdj + '</td>' +
-                  '</tr>' +
-                  '<tr>' +
-                    '<td class="padding-left"><strong>Cycle</strong></td>' +
-                    '<td>' + walkAct + '</td>' +
-                    '<td>' + '1.00' + '</td>' +
-                    '<td>' + walkAdj + '</td>' +
                   '</tr>' +
                   '<tr>' +
                     '<td></td>' +
